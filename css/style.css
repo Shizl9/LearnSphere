@@ -23,12 +23,7 @@ body {
   font-weight: 400;
 }
 
-/* ---------- Dark Theme ---------- */
-body.dark {
-  --bg: #121212;
-  --text: #ffffff;
-  --card: #1e1e1e;
-}
+
 
 /* ---------- Navbar ---------- */
 .navbar-brand {
