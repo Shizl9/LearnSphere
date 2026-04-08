@@ -68,16 +68,18 @@ function displayFeaturedCourses(courses) {
     }
 
     container.innerHTML += `
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 ">
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">${course.title}</h5>
-            <span class="badge bg-info mb-2">${course.category}</span>
+            <hr>
+            <span class="badge bg-info ">${course.category}</span>
             <p class="card-text">Instructor: ${course.instructor}</p>
             <p>${stars}</p>
             <p class="card-text">Duration: ${course.duration}</p>
-            <span class="badge bg-${levelColor}">${course.level}</span>
-            <button class="btn btn-primary mt-2" onclick="enrollCourse(${course.id})">
+            <span class="badge bg-${levelColor} ">${course.level}</span>
+            <hr>
+            <button class="btn btn-primary mb-4" style="display:block; margin:10px auto 0 auto;" " onclick="enrollCourse(${course.id})">
               Enroll Now
             </button>
           </div>
