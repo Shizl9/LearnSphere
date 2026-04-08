@@ -1,0 +1,52 @@
+/* إظهار أيقونة الشمس والقمر */
+.moon { display: inline-block; }
+.sun { display: none; }
+
+/* عند تفعيل Dark Mode */
+#toggle-btn:checked ~ .moon { display: none; }
+#toggle-btn:checked ~ .sun { display: inline-block; color: var(--text-dark); }
+
+/* Navbar */
+#toggle-btn:checked ~ .navbar {
+    background-color: var(--navbar-dark) !important;
+}
+#toggle-btn:checked ~ .navbar .navbar-brand {
+    color: var(--text-dark) !important;
+}
+#toggle-btn:checked ~ .navbar .nav-link {
+    color: var(--navlinks-dark) !important;
+}
+
+/* Hero Section */
+#toggle-btn:checked ~ .hero {
+    background-color: var(--body-dark);
+    color: var(--text-dark);
+}
+
+/* Featured Courses & Categories */
+#toggle-btn:checked ~ #featuredCourses .card,
+#toggle-btn:checked ~ #categories .card {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+}
+
+/* Testimonials */
+#toggle-btn:checked ~ section.container.my-5 .card {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+}
+
+/* Footer */
+#toggle-btn:checked ~ footer {
+    background-color: var(--navbar-dark);
+    color: var(--text-dark);
+}
+#toggle-btn:checked ~ footer input,
+#toggle-btn:checked ~ footer textarea {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+}
+#toggle-btn:checked ~ footer button {
+    background-color: var(--primary-dark);
+    color: #fff;
+}
