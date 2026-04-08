@@ -11,18 +11,10 @@
   --text: #000000;
   --card: #f8f9fa;
   --logo: #593df8;
-  --primary: #ff6b35; /* لون جذاب للـ Enroll Now */
+  --primary: #f04000; /* لون جذاب للـ Enroll Now */
   --star: #ffd700; /* لون النجوم */
 }
-:root {
-  /* Dark Mode Colors */
-  --body-dark: #252525;
-  --text-dark: #ffffff;
-  --card-dark: #1e1e1e;
-  --navbar-dark: #000000;
-  --navlinks-dark: #adadad;
-  --primary-dark: #c17e1f;
-}
+
 
 body {
   background: var(--bg);
@@ -154,7 +146,7 @@ body.dark {
   border-color: var(--primary);
 }
 #featuredCourses .btn-primary:hover {
-  background-color: #e65c2a;
+  background-color: #e21d1d;
   border-color: #e65c2a;
 }
 /* النجوم */
@@ -162,6 +154,7 @@ body.dark {
   color: var(--star);
   font-size: 16px;
 }
+
 /* ---------- Categories ---------- */
 .category-card {
   position: relative;
