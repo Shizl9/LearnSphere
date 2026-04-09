@@ -95,4 +95,11 @@ function applyFilters() {
 
   renderCourses(filtered);
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.getElementById("searchInput").addEventListener("keyup", e => {
+    searchValue = e.target.value.toLowerCase();
+    applyFilters();
+  });
+
 
