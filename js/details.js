@@ -27,4 +27,16 @@ async function loadCourse() {
 
 loadCourse();
 
+// عرض بيانات الكورس
+function renderCourse() {
+  document.getElementById("courseHeader").innerHTML = `
+    <h2>${currentCourse.title}</h2>
+    <p>${currentCourse.instructor}</p>
+    <span class="badge bg-info">${currentCourse.category}</span>
+    <span class="badge bg-secondary">${currentCourse.level}</span>
+    <p>⭐ ${currentCourse.rating}</p>
+    <p>⏱ ${currentCourse.duration}</p>
+    <p>👨‍🎓 ${currentCourse.studentsCount}</p>
+  `;
+}
 
