@@ -36,7 +36,7 @@ function renderCourse() {
     <span class="badge bg-secondary">${currentCourse.level}</span>
     <p>⭐ ${currentCourse.rating}</p>
     <p>⏱ ${currentCourse.duration}</p>
-    <p>👨‍🎓 ${currentCourse.studentsCount}</p>
+    <p>👨 ${currentCourse.studentsCount}</p>
   `;
 }
 
