@@ -66,20 +66,25 @@
       </div>
     </div>
   </nav>
-  
-<div class="container my-5">
+ <div class="container my-5">
+    <h2 class="mb-4">My Learning Dashboard</h2>
 
-  <!-- Summary -->
-  <div class="row text-center mb-4" id="summaryStats"></div>
+    <!-- Summary Stats -->
+    <div class="row summary-stats text-center mb-4">
+      <div class="col-md-4"><strong>Total Enrolled:</strong> <span id="totalEnrolled">0</span></div>
+      <div class="col-md-4"><strong>Total Completed:</strong> <span id="totalCompleted">0</span></div>
+      <div class="col-md-4"><strong>Average Score:</strong> <span id="averageScore">0</span></div>
+    </div>
 
-  <!-- Empty status-->
-  <div id="emptyState" class="text-center my-5"></div>
+    <!-- Courses Container -->
+    <div id="dashboardContainer" class="row"></div>
 
-  <!-- Courses -->
-  <div class="row" id="dashboardContainer"></div>
-
-</div>
-</div>
+    <!-- Empty state -->
+    <div id="emptyState" class="empty-state d-none">
+      <p>You haven't enrolled in any courses yet.</p>
+      <a href="courses.html" class="btn btn-primary">Browse Courses</a>
+    </div>
+  </div>
 <!-- details js file -->
 <script src="./js/details.js"></script>
 <!-- main js file -->
