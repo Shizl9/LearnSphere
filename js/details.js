@@ -138,3 +138,11 @@ function submitQuiz() {
 
   localStorage.setItem(`score_${currentCourse.id}`, score);
 }
+
+// navbar
+function updateNavbar() {
+  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+  document.getElementById("enrolledCount").innerText = enrolled.length;
+}
+
+updateNavbar();
