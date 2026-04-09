@@ -40,4 +40,14 @@ function renderCourse() {
   `;
 }
 
+// topics
+function renderTopics() {
+  let list = document.getElementById("topicsList");
+  list.innerHTML = "";
+
+  for (let i = 0; i < currentCourse.topics.length; i++) {
+    list.innerHTML += `<li>${currentCourse.topics[i]}</li>`;
+  }
+}
+
 
