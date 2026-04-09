@@ -451,3 +451,15 @@ body.dark .course-card .badge {
 body.dark .price {
   color: #ff7b00;
 }
+#categoryFilter .btn {
+  margin: 5px;
+  border-radius: 20px;
+}
+
+#searchInput {
+  border-radius: 10px;
+}
+
+.form-select {
+  border-radius: 10px;
+}

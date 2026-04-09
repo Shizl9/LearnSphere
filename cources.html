@@ -73,18 +73,7 @@
   <div class="col-md-4">
     <input type="text" id="searchInput" class="form-control" placeholder="Search courses...">
   </div>
-  <!-- category Filters -->
-       <div class="col-md-4">
-        <div class="btn-group" role="group" id="categoryFilter">
-            <button class="btn btn-outline-primary active" data-category="All">All</button>
-            <button class="btn btn-outline-primary" data-category="Web Development">Web Dev</button>
-            <button class="btn btn-outline-primary" data-category="Data Science">Data Science</button>
-            <button class="btn btn-outline-primary" data-category="Design">Design</button>
-            <button class="btn btn-outline-primary" data-category="Cybersecurity">Cybersecurity</button>
-            <button class="btn btn-outline-primary" data-category="Mobile Dev">Mobile Dev</button>
-            <button class="btn btn-outline-primary" data-category="DevOps">DevOps</button>
-        </div>
-       </div> 
+ 
        <!-- level -->
        <div class="col-md-4">
          <select id="levelFilter" class="form-select">
@@ -106,6 +95,19 @@
             </select>
         </div>
      </div>
+
+      <!-- category Filters -->
+       <div class="col-md-4">
+        <div class="d-flex flex-wrap gap-2" role="group" id="categoryFilter">
+            <button class="btn btn-outline-primary active" data-category="All">All</button>
+            <button class="btn btn-outline-primary" data-category="Web Development">Web Dev</button>
+            <button class="btn btn-outline-primary" data-category="Data Science">Data Science</button>
+            <button class="btn btn-outline-primary" data-category="Design">Design</button>
+            <button class="btn btn-outline-primary" data-category="Cybersecurity">Cybersecurity</button>
+            <button class="btn btn-outline-primary" data-category="Mobile Dev">Mobile Dev</button>
+            <button class="btn btn-outline-primary" data-category="DevOps">DevOps</button>
+        </div>
+       </div> 
 
      <!-- Courses Grid -->
   <section class="container my-4">
