@@ -51,3 +51,12 @@ function renderTopics() {
 }
 
 
+// instructor
+function renderInstructor() {
+  document.getElementById("instructorCard").innerHTML = `
+    <h5>${currentCourse.instructor}</h5>
+    <p>Expert Instructor</p>
+    <p>⭐ ${currentCourse.rating}</p>
+  `;
+}
+
