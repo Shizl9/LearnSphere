@@ -60,3 +60,26 @@ function renderInstructor() {
   `;
 }
 
+
+// enroll
+function renderEnroll() {
+  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+  let isEnrolled = false;
+
+  for (let i = 0; i < enrolled.length; i++) {
+    if (enrolled[i].id === currentCourse.id) {
+      isEnrolled = true;
+      break;
+    }
+  }
+
+  if (isEnrolled) {
+    document.getElementById("enrollSection").innerHTML =
+      `<p class="text-success">You are enrolled ✓</p>`;
+  } else {
+    document.getElementById("enrollSection").innerHTML =
+      `<button class="btn btn-primary" onclick="enroll()">Enroll</button>`;
+  }
+}
+
+
