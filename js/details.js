@@ -82,4 +82,14 @@ function renderEnroll() {
   }
 }
 
+// enroll function
+function enroll() {
+  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+
+  enrolled.push(currentCourse);
+  localStorage.setItem("enrolled", JSON.stringify(enrolled));
+
+  renderEnroll();
+  updateNavbar();
+}
 
