@@ -1,8 +1,10 @@
+// Global Data
 let allCourses = [];
 let selectedCategory = "All";
 let selectedLevel = "All";
 let searchValue = "";
 
+// Load JSON
 async function loadCourses() {
   const res = await fetch("./data.json");
   const data = await res.json();
@@ -10,7 +12,10 @@ async function loadCourses() {
   allCourses = data.courses;
   renderCourses(allCourses);
 }
+
 loadCourses();
+
+// Render Courses
 function renderCourses(courses) {
   const container = document.getElementById("coursesContainer");
   if (!container) return;
@@ -57,6 +62,7 @@ function renderCourses(courses) {
   });
 }
 
+// Enroll
 function enroll(id) {
   let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
 
@@ -70,11 +76,13 @@ function enroll(id) {
   renderCourses(allCourses);
 }
 
+// Navbar Badge
 function updateNavbar() {
   let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
   document.getElementById("enrolledCount").innerText = enrolled.length;
 }
 
+// Filters
 function applyFilters() {
   let filtered = [...allCourses];
 
@@ -95,6 +103,8 @@ function applyFilters() {
 
   renderCourses(filtered);
 }
+
+// Search
 document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("searchInput").addEventListener("keyup", e => {
@@ -102,4 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
     applyFilters();
   });
 
+  // Category
+  document.querySelectorAll("#categoryFilter button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#categoryFilter button")
+        .forEach(b => b.classList.remove("active"));
+
+      btn.classList.add("active");
+
+      selectedCategory = btn.dataset.category;
+      applyFilters();
+    });
+  });
 
