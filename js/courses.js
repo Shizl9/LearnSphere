@@ -56,3 +56,17 @@ function renderCourses(courses) {
     `;
   });
 }
+
+function enroll(id) {
+  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+
+  if (!enrolled.some(c => c.id === id)) {
+    let course = allCourses.find(c => c.id === id);
+    enrolled.push(course);
+    localStorage.setItem("enrolled", JSON.stringify(enrolled));
+  }
+
+  updateNavbar();
+  renderCourses(allCourses);
+}
+
