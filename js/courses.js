@@ -1,4 +1,4 @@
-let container= document.getElementById("courcesContainer");
-function renderCourses(courses) {
-    
-}
+let allCourses = [];
+let selectedCategory = "All";
+let selectedLevel = "All";
+let searchValue = "";

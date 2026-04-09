@@ -35,6 +35,7 @@ async function loadData() {
     const data = await res.json();
 
     allCourses = data.courses;
+    renderCourses(allCourses);
 
     displayStats(data.stats);
     displayFeaturedCourses(data.courses);

@@ -69,6 +69,11 @@
 <!-- Search & Filters -->
   <section class="container my-4">
     <div class="row g-2 align-items-center">
+         <!-- 🔍 Search -->
+  <div class="col-md-4">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search courses...">
+  </div>
+  <!-- category Filters -->
        <div class="col-md-4">
         <div class="btn-group" role="group" id="categoryFilter">
             <button class="btn btn-outline-primary active" data-category="All">All</button>
@@ -80,6 +85,7 @@
             <button class="btn btn-outline-primary" data-category="DevOps">DevOps</button>
         </div>
        </div> 
+       <!-- level -->
        <div class="col-md-4">
          <select id="levelFilter" class="form-select">
             <option value="All">All Levels</option>
@@ -89,6 +95,7 @@
          </select>
        </div>
     </div>
+    <!-- Sort  -->
      <div class="row mt-3 g-3">
         <div class="col-md-4">
             <select id="sortFilter" class="form-select">
