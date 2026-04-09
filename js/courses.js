@@ -53,7 +53,9 @@ function renderCourses(courses) {
     <span class="badge bg-info">${course.category}</span>
     <span class="badge bg-secondary">${course.level}</span>
 
-    <h5 class="mt-2">${course.title}</h5>
+    <h5 class="mt-2"><a href="course-details.html?id=${course.id}" style="text-decoration:none; color:inherit;">
+    ${course.title}
+  </a></h5>
     <p>${course.instructor}</p>
 
     <p class="stars">${stars}</p>
