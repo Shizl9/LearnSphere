@@ -14,6 +14,15 @@ async function loadCourses() {
 }
 
 loadCourses();
+function getCategoryClass(category) {
+  switch (category) {
+    case "Web Development": return "web";
+    case "Design": return "design";
+    case "Data Science": return "data";
+    case "Cybersecurity": return "cyber";
+    default: return "default";
+  }
+}
 
 // Render Courses
 function renderCourses(courses) {
@@ -33,30 +42,36 @@ function renderCourses(courses) {
 
     container.innerHTML += `
       <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
+        <div class="course-card h-100">
+  
+  ${!course.available ? `<div class="coming-soon">Coming Soon</div>` : ""}
 
-            <span class="badge bg-info">${course.category}</span>
-            <span class="badge bg-secondary">${course.level}</span>
+  <div class="course-header ${getCategoryClass(course.category)}"></div>
 
-            <h5 class="mt-2">${course.title}</h5>
-            <p>${course.instructor}</p>
+  <div class="p-3">
 
-            <p class="text-warning">${stars}</p>
+    <span class="badge bg-info">${course.category}</span>
+    <span class="badge bg-secondary">${course.level}</span>
 
-            <p>⏱ ${course.duration}</p>
-            <p>👨‍🎓 ${course.studentsCount}</p>
-            <p><strong>$${course.price}</strong></p>
+    <h5 class="mt-2">${course.title}</h5>
+    <p>${course.instructor}</p>
 
-            <button class="btn btn-primary w-100"
-              onclick="enroll(${course.id})"
-              ${isEnrolled ? "disabled" : ""}
-            >
-              ${isEnrolled ? "Enrolled ✓" : "Enroll"}
-            </button>
+    <p class="stars">${stars}</p>
 
-          </div>
-        </div>
+    <p>⏱ ${course.duration}</p>
+    <p>👨‍🎓 ${course.studentsCount}</p>
+
+    <p class="price">$${course.price}</p>
+
+    <button class="btn btn-primary w-100"
+      onclick="enroll(${course.id})"
+      ${isEnrolled || !course.available ? "disabled" : ""}
+    >
+      ${!course.available ? "Coming Soon" : isEnrolled ? "Enrolled ✓" : "Enroll"}
+    </button>
+
+  </div>
+</div>
       </div>
     `;
   });
