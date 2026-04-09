@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cource details</title>
+    <!-- icons shourtcut link -->
+    <link rel="shortcut icon" href="./assets/lernspher-icon.png" type="image/x-icon">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- icons css-->
+    <link rel="stylesheet" href="./css/all.min.css">
+    <!-- bootsrap css-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!--  main css file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light sticky-top">
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand brand-logo" href="#">
+                <img src="./assets/logo.png" alt="Logo">
+            </a>
+            <!-- Toggle (mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Instructors</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Enrolled Count -->
+                <span class="badge bg-primary ms-3" id="enrolledCount">0</span>
+                <!-- Dark / Light -->
+
+                <input type="checkbox" id="theme-switch" hidden>
+                <label for="toggle-btn" class="icon-dark">
+                    <div class="moon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="sun"><i class="fa-solid fa-sun"></i></div>
+                </label>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>cource details</title>
+        <!-- icons shourtcut link -->
+        <link rel="shortcut icon" href="./assets/lernspher-icon.png" type="image/x-icon">
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- icons css-->
+        <link rel="stylesheet" href="./css/all.min.css">
+        <!-- bootsrap css-->
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <!--  main css file -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg bg-light sticky-top">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="navbar-brand brand-logo" href="#">
+                    <img src="./assets/logo.png" alt="Logo">
+                </a>
+                <!-- Toggle (mobile) -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="courses.html">Courses</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Instructors</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+
+                    <!-- Enrolled Count -->
+                    <span class="badge bg-primary ms-3" id="enrolledCount">0</span>
+                    <!-- Dark / Light -->
+
+                    <input type="checkbox" id="theme-switch" hidden>
+                    <label for="toggle-btn" class="icon-dark">
+                        <div class="moon"><i class="fa-solid fa-moon"></i></div>
+                        <div class="sun"><i class="fa-solid fa-sun"></i></div>
+                    </label>
+
+
+                </div>
+            </div>
+        </nav>
+        <div class="container my-5">
+
+            <!-- Course Header -->
+            <div id="courseHeader" class="mb-4"></div>
+
+            <!-- Topics -->
+            <h4>What You Will Learn</h4>
+            <ul id="topicsList" class="mb-4"></ul>
+            <!-- Topics -->
+            <h4>What You Will Learn</h4>
+            <ul id="topicsList" class="mb-4"></ul>
+
+            <!-- Instructor -->
+            <div id="instructorCard" class="card p-3 mb-4"></div>
+
+            <!-- Enroll -->
+            <div id="enrollSection" class="mb-4"></div>
+
+            <!-- Quiz -->
+            <div id="quizContainer"></div>
+            <button class="btn btn-success mt-3" onclick="submitQuiz()">Submit Quiz</button>
+
+            <h5 id="scoreResult" class="mt-4"></h5>
+
+        </div>
+        <!-- details js file -->
+        <script src="./js/details.js"></script>
+        <!-- main js file -->
+        <script src="./js/main.js"></script>
+        <!-- Icons js -->
+        <script src="./js/all.min.js"></script>
+        <!-- bootstrap js file -->
+        <script src="./js/bootstrap.bundle.min.js"></script>
+    </body>
+
+    </html>
+    </div>
+    <!-- details js file -->
+    <script src="./js/details.js"></script>
+    <!-- main js file -->
+    <script src="./js/main.js"></script>
+    <!-- Icons js -->
+    <script src="./js/all.min.js"></script>
+    <!-- bootstrap js file -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

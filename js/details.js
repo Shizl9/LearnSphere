@@ -1,22 +1,16 @@
 let courseId;
 let currentCourse;
 
-// قراءة id من الرابط
+// 📌 قراءة ID من الرابط
 const params = new URLSearchParams(window.location.search);
 courseId = parseInt(params.get("id"));
 
-// تحميل البيانات
+// 📌 تحميل البيانات
 async function loadCourse() {
   const res = await fetch("./data.json");
   const data = await res.json();
 
-  // نجيب الكورس باستخدام for
-  for (let i = 0; i < data.courses.length; i++) {
-    if (data.courses[i].id === courseId) {
-      currentCourse = data.courses[i];
-      break;
-    }
-  }
+  currentCourse = data.courses.find(c => c.id === courseId);
 
   renderCourse();
   renderTopics();
@@ -27,12 +21,12 @@ async function loadCourse() {
 
 loadCourse();
 
-// عرض بيانات الكورس
+// 📌 عرض الهيدر
 function renderCourse() {
   document.getElementById("courseHeader").innerHTML = `
     <h2>${currentCourse.title}</h2>
     <p>${currentCourse.instructor}</p>
-    <span class="badge bg-infor">${currentCourse.category}</span>
+    <span class="badge bg-info">${currentCourse.category}</span>
     <span class="badge bg-secondary">${currentCourse.level}</span>
     <p>⭐ ${currentCourse.rating}</p>
     <p>⏱ ${currentCourse.duration}</p>
@@ -40,18 +34,16 @@ function renderCourse() {
   `;
 }
 
-// topics
+// 📌 topics
 function renderTopics() {
   let list = document.getElementById("topicsList");
-  list.innerHTML = "";
 
-  for (let i = 0; i < currentCourse.topics.length; i++) {
-    list.innerHTML += `<li>${currentCourse.topics[i]}</li>`;
-  }
+  currentCourse.topics.forEach(topic => {
+    list.innerHTML += `<li>${topic}</li>`;
+  });
 }
 
-
-// instructor
+// 📌 instructor
 function renderInstructor() {
   document.getElementById("instructorCard").innerHTML = `
     <h5>${currentCourse.instructor}</h5>
@@ -60,29 +52,21 @@ function renderInstructor() {
   `;
 }
 
-
-// enroll
+// 📌 enroll
 function renderEnroll() {
   let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
-  let isEnrolled = false;
-
-  for (let i = 0; i < enrolled.length; i++) {
-    if (enrolled[i].id === currentCourse.id) {
-      isEnrolled = true;
-      break;
-    }
-  }
+  let isEnrolled = enrolled.some(c => c.id === currentCourse.id);
 
   if (isEnrolled) {
     document.getElementById("enrollSection").innerHTML =
       `<p class="text-success">You are enrolled ✓</p>`;
   } else {
     document.getElementById("enrollSection").innerHTML =
-      `<button class="btn btn-primary" onclick="enroll()">Enroll</button>`;
+      `<button class="btn btn-primary" onclick="enroll()">Enroll in This Course</button>`;
   }
 }
 
-// enroll function
+// 📌 enroll function
 function enroll() {
   let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
 
@@ -93,23 +77,21 @@ function enroll() {
   updateNavbar();
 }
 
-// quiz
+// 📌 quiz
 function renderQuiz() {
   let container = document.getElementById("quizContainer");
-  container.innerHTML = "";
 
-  for (let i = 0; i < currentCourse.quiz.length; i++) {
-    let q = currentCourse.quiz[i];
+  currentCourse.quiz.forEach((q, index) => {
     let optionsHTML = "";
 
-    for (let j = 0; j < q.options.length; j++) {
+    q.options.forEach(opt => {
       optionsHTML += `
         <div>
-          <input type="radio" name="q${i}" value="${q.options[j]}">
-          ${q.options[j]}
+          <input type="radio" name="q${index}" value="${opt}">
+          ${opt}
         </div>
       `;
-    }
+    });
 
     container.innerHTML += `
       <div class="question">
@@ -117,29 +99,29 @@ function renderQuiz() {
         ${optionsHTML}
       </div>
     `;
-  }
+  });
 }
 
-
-// submit quiz
+// 📌 submit quiz
 function submitQuiz() {
   let score = 0;
 
-  for (let i = 0; i < currentCourse.quiz.length; i++) {
-    let selected = document.querySelector(`input[name="q${i}"]:checked`);
+  currentCourse.quiz.forEach((q, index) => {
+    let selected = document.querySelector(`input[name="q${index}"]:checked`);
 
-    if (selected && selected.value === currentCourse.quiz[i].answer) {
+    if (selected && selected.value === q.answer) {
       score++;
     }
-  }
+  });
 
   document.getElementById("scoreResult").innerText =
     `Your Score: ${score} / 5`;
 
+  // حفظ النتيجة
   localStorage.setItem(`score_${currentCourse.id}`, score);
 }
 
-// navbar
+// 📌 navbar
 function updateNavbar() {
   let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
   document.getElementById("enrolledCount").innerText = enrolled.length;
