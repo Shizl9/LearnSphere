@@ -125,3 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Level
+  document.getElementById("levelFilter").addEventListener("change", e => {
+    selectedLevel = e.target.value;
+    applyFilters();
+  });
+
+ 
