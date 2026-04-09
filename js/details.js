@@ -93,3 +93,29 @@ function enroll() {
   updateNavbar();
 }
 
+// quiz
+function renderQuiz() {
+  let container = document.getElementById("quizContainer");
+  container.innerHTML = "";
+
+  for (let i = 0; i < currentCourse.quiz.length; i++) {
+    let q = currentCourse.quiz[i];
+    let optionsHTML = "";
+
+    for (let j = 0; j < q.options.length; j++) {
+      optionsHTML += `
+        <div>
+          <input type="radio" name="q${i}" value="${q.options[j]}">
+          ${q.options[j]}
+        </div>
+      `;
+    }
+
+    container.innerHTML += `
+      <div class="question">
+        <h6>${q.question}</h6>
+        ${optionsHTML}
+      </div>
+    `;
+  }
+}
