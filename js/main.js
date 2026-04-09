@@ -28,10 +28,13 @@ function updateNavbar() {
 updateNavbar();
 
 // Async fetch for JSON
+let allCourses = [];
 async function loadData() {
   try {
     const res = await fetch('./data.json');
     const data = await res.json();
+
+    allCourses = data.courses;
 
     displayStats(data.stats);
     displayFeaturedCourses(data.courses);
