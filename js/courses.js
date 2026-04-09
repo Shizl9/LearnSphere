@@ -131,4 +131,27 @@ document.addEventListener("DOMContentLoaded", () => {
     applyFilters();
   });
 
- 
+  // Sort
+  document.getElementById("sortFilter").addEventListener("change", e => {
+    let sorted = [...allCourses];
+
+    switch (e.target.value) {
+      case "ratingDesc":
+        sorted.sort((a, b) => b.rating - a.rating);
+        break;
+      case "priceAsc":
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case "priceDesc":
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+      case "durationAsc":
+        sorted.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
+        break;
+    }
+
+    renderCourses(sorted);
+  });
+
+  updateNavbar();
+});
