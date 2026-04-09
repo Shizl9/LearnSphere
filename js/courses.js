@@ -74,3 +74,25 @@ function updateNavbar() {
   let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
   document.getElementById("enrolledCount").innerText = enrolled.length;
 }
+
+function applyFilters() {
+  let filtered = [...allCourses];
+
+  if (selectedCategory !== "All") {
+    filtered = filtered.filter(c => c.category === selectedCategory);
+  }
+
+  if (selectedLevel !== "All") {
+    filtered = filtered.filter(c => c.level === selectedLevel);
+  }
+
+  if (searchValue) {
+    filtered = filtered.filter(c =>
+      c.title.toLowerCase().includes(searchValue) ||
+      c.instructor.toLowerCase().includes(searchValue)
+    );
+  }
+
+  renderCourses(filtered);
+}
+
