@@ -119,3 +119,22 @@ function renderQuiz() {
     `;
   }
 }
+
+
+// submit quiz
+function submitQuiz() {
+  let score = 0;
+
+  for (let i = 0; i < currentCourse.quiz.length; i++) {
+    let selected = document.querySelector(`input[name="q${i}"]:checked`);
+
+    if (selected && selected.value === currentCourse.quiz[i].answer) {
+      score++;
+    }
+  }
+
+  document.getElementById("scoreResult").innerText =
+    `Your Score: ${score} / 5`;
+
+  localStorage.setItem(`score_${currentCourse.id}`, score);
+}
