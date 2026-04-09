@@ -463,3 +463,17 @@ body.dark .price {
 .form-select {
   border-radius: 10px;
 }
+
+#courseHeader {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+#topicsList li {
+  padding: 5px 0;
+}
+
+.question {
+  margin-bottom: 20px;
+}
