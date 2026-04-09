@@ -70,3 +70,7 @@ function enroll(id) {
   renderCourses(allCourses);
 }
 
+function updateNavbar() {
+  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+  document.getElementById("enrolledCount").innerText = enrolled.length;
+}
