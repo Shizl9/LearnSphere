@@ -10,3 +10,4 @@ async function loadCourses() {
   allCourses = data.courses;
   renderCourses(allCourses);
 }
+loadCourses();
