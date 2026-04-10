@@ -67,26 +67,41 @@
     </div>
   </nav>
  <div class="container my-5">
-    <h2 class="mb-4">My Learning Dashboard</h2>
 
-    <!-- Summary Stats -->
-    <div class="row summary-stats text-center mb-4">
-      <div class="col-md-4"><strong>Total Enrolled:</strong> <span id="totalEnrolled">0</span></div>
-      <div class="col-md-4"><strong>Total Completed:</strong> <span id="totalCompleted">0</span></div>
-      <div class="col-md-4"><strong>Average Score:</strong> <span id="averageScore">0</span></div>
+  <!-- Summary stats -->
+  <div class="row mb-4 text-center">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 id="totalEnrolled">0</h3>
+        <p>Total Enrolled</p>
+      </div>
     </div>
-
-    <!-- Courses Container -->
-    <div id="dashboardContainer" class="row"></div>
-
-    <!-- Empty state -->
-    <div id="emptyState" class="empty-state d-none">
-      <p>You haven't enrolled in any courses yet.</p>
-      <a href="courses.html" class="btn btn-primary">Browse Courses</a>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 id="totalCompleted">0</h3>
+        <p>Total Completed</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 id="averageScore">0%</h3>
+        <p>Average Score</p>
+      </div>
     </div>
   </div>
-<!-- details js file -->
-<script src="./js/details.js"></script>
+
+  <!-- Enrolled Courses List -->
+  <div id="coursesDashboard" class="row"></div>
+
+  <!-- Empty state -->
+  <div id="emptyState" class="text-center mt-5 d-none">
+    <h4>You haven't enrolled in any courses yet.</h4>
+    <a href="courses.html" class="btn btn-primary mt-3">Browse Courses</a>
+  </div>
+
+</div>
+<!-- dashboard js file -->
+<script src="./js/dashboard.js"></script>
 <!-- main js file -->
 <script src="./js/main.js"></script>
   <!-- Icons js -->

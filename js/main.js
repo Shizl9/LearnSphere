@@ -1,5 +1,5 @@
 // Theme Switch
-let switchBtn = document.getElementById('toggle-btn');
+let switchBtn = document.getElementById('theme-switch');
 
 // Load theme
 if (localStorage.getItem('theme') === 'dark') {
@@ -35,7 +35,7 @@ async function loadData() {
     const data = await res.json();
 
     allCourses = data.courses;
-    renderCourses(allCourses);
+    renderCoursesDashboard();
 
     displayStats(data.stats);
     displayFeaturedCourses(data.courses);
@@ -131,3 +131,27 @@ categories.forEach(cat => {
   col.appendChild(card);
   categoriesContainer.appendChild(col);
 });
+
+function enrollCourse(courseId) {
+  let enrolled = JSON.parse(localStorage.getItem('enrolledCourses')) || [];
+
+  // نتأكد ما يتكرر
+  if (enrolled.find(c => c.id === courseId)) {
+    alert("Already enrolled!");
+    return;
+  }
+
+  // نجيب الكورس من allCourses
+  const course = allCourses.find(c => c.id === courseId);
+
+  if (!course) return;
+
+  // نضيف quizScore
+  course.quizScore = 0;
+
+  enrolled.push(course);
+
+  localStorage.setItem('enrolledCourses', JSON.stringify(enrolled));
+
+  updateNavbar();
+}

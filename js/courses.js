@@ -90,13 +90,13 @@ function enroll(id) {
   }
 
   updateNavbar();
-  renderCourses(allCourses);
+ 
 }
 
 // Navbar Badge
 function updateNavbar() {
-  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
-  document.getElementById("enrolledCount").innerText = enrolled.length;
+  let enrolled = JSON.parse(localStorage.getItem('enrolledCourses')) || [];
+  document.getElementById('enrolledCount').textContent = enrolled.length;
 }
 
 // Filters

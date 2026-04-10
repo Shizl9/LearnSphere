@@ -477,3 +477,75 @@ body.dark .price {
 .question {
   margin-bottom: 20px;
 }
+
+/* ===== Dashboard Cards ===== */
+.course-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background: var(--card-bg, #fff);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.course-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.course-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.progress {
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e9ecef;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+/* Progress bar colors */
+.progress-bar.red {
+  background-color: #dc3545; /* Bootstrap danger red */
+}
+
+.progress-bar.yellow {
+  background-color: #ffc107; /* Bootstrap warning yellow */
+}
+
+.progress-bar.green {
+  background-color: #28a745; /* Bootstrap success green */
+}
+
+/* Unenroll button */
+.btn-unenroll {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-unenroll:hover {
+  background-color: #c5302b;
+}
+
+/* Empty state */
+#emptyState {
+  font-size: 1.3rem;
+  color: #666;
+  margin-top: 40px;
+}
