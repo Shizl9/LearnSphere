@@ -66,3 +66,22 @@ function renderCoursesDashboard() {
 
   updateStats(courses);
 }
+
+function unenroll(id) {
+  let courses = getEnrolledCourses();
+  courses = courses.filter(c => c.id !== id);
+  saveEnrolledCourses(courses);
+  renderCoursesDashboard();
+}
+
+function updateStats(courses) {
+  let total = courses.length;
+  let completed = courses.filter(c => c.quizScore === 5).length;
+  let avg = total
+    ? Math.round(courses.reduce((a, c) => a + (c.quizScore || 0), 0) / total * 20)
+    : 0;
+
+  document.getElementById('totalEnrolled').textContent = total;
+  document.getElementById('totalCompleted').textContent = completed;
+  document.getElementById('averageScore').textContent = avg + '%';
+}
