@@ -10,3 +10,7 @@ function getEnrolledCourses() {
 function saveEnrolledCourses(courses) {
   localStorage.setItem('enrolledCourses', JSON.stringify(courses));
 }
+
+function getProgressPercent(score) {
+  return score * 20;
+}
