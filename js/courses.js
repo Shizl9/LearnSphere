@@ -1,38 +1,50 @@
-// Global Data
+// ================= GLOBAL STATE =================
 let allCourses = [];
 let selectedCategory = "All";
 let selectedLevel = "All";
 let searchValue = "";
 
-// Load JSON
+// ================= LOAD DATA =================
 async function loadCourses() {
-  const res = await fetch("./data.json");
-  const data = await res.json();
+  try {
+    const res = await fetch("./data.json");
+    const data = await res.json();
 
-  allCourses = data.courses;
-  renderCourses(allCourses);
+    allCourses = data.courses;
+    renderCourses(allCourses);
+    updateNavbar();
+
+  } catch (err) {
+    console.error("Error loading courses:", err);
+  }
 }
 
 loadCourses();
+
+// ================= CATEGORY CLASS =================
 function getCategoryClass(category) {
   switch (category) {
     case "Web Development": return "web";
     case "Design": return "design";
     case "Data Science": return "data";
     case "Cybersecurity": return "cyber";
+    case "Mobile Dev": return "mobile";
+    case "DevOps": return "devops";
     default: return "default";
   }
 }
 
-// Render Courses
+// ================= RENDER COURSES =================
 function renderCourses(courses) {
   const container = document.getElementById("coursesContainer");
   if (!container) return;
 
   container.innerHTML = "";
 
+  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+
   courses.forEach(course => {
-    let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+
     let isEnrolled = enrolled.some(c => c.id === course.id);
 
     let stars = "";
@@ -43,43 +55,46 @@ function renderCourses(courses) {
     container.innerHTML += `
       <div class="col-md-4 mb-4">
         <div class="course-card h-100">
-  
-  ${!course.available ? `<div class="coming-soon">Coming Soon</div>` : ""}
 
-  <div class="course-header ${getCategoryClass(course.category)}"></div>
+          ${!course.available ? `<div class="coming-soon">Coming Soon</div>` : ""}
 
-  <div class="p-3">
+          <div class="course-header ${getCategoryClass(course.category)}"></div>
 
-    <span class="badge bg-info">${course.category}</span>
-    <span class="badge bg-secondary">${course.level}</span>
+          <div class="p-3">
 
-    <h5 class="mt-2"><a href="course-details.html?id=${course.id}" style="text-decoration:none; color:inherit;">
-    ${course.title}
-  </a></h5>
-    <p>${course.instructor}</p>
+            <span class="badge bg-info">${course.category}</span>
+            <span class="badge bg-secondary">${course.level}</span>
 
-    <p class="stars">${stars}</p>
+            <h5 class="mt-2">
+              <a href="course-details.html?id=${course.id}" style="text-decoration:none; color:inherit;">
+                ${course.title}
+              </a>
+            </h5>
 
-    <p>⏱ ${course.duration}</p>
-    <p>👨‍🎓 ${course.studentsCount}</p>
+            <p>${course.instructor}</p>
 
-    <p class="price">$${course.price}</p>
+            <p class="stars">${stars}</p>
 
-    <button class="btn btn-primary w-100"
-      onclick="enroll(${course.id})"
-      ${isEnrolled || !course.available ? "disabled" : ""}
-    >
-      ${!course.available ? "Coming Soon" : isEnrolled ? "Enrolled ✓" : "Enroll"}
-    </button>
+            <p>⏱ ${course.duration}</p>
+            <p>👨‍🎓 ${course.studentsCount}</p>
 
-  </div>
-</div>
+            <p class="price">$${course.price}</p>
+
+            <button class="btn btn-primary w-100"
+              onclick="enroll(${course.id})"
+              ${isEnrolled || !course.available ? "disabled" : ""}
+            >
+              ${!course.available ? "Coming Soon" : isEnrolled ? "Enrolled ✓" : "Enroll"}
+            </button>
+
+          </div>
+        </div>
       </div>
     `;
   });
 }
 
-// Enroll
+// ================= ENROLL =================
 function enroll(id) {
   let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
 
@@ -90,27 +105,34 @@ function enroll(id) {
   }
 
   updateNavbar();
- 
+  applyFilters(); // refresh UI
 }
 
-// Navbar Badge
+// ================= NAVBAR BADGE =================
 function updateNavbar() {
-  let enrolled = JSON.parse(localStorage.getItem('enrolledCourses')) || [];
-  document.getElementById('enrolledCount').textContent = enrolled.length;
+  let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+  let badge = document.getElementById("enrolledCount");
+
+  if (badge) {
+    badge.textContent = enrolled.length;
+  }
 }
 
-// Filters
+// ================= FILTERS =================
 function applyFilters() {
   let filtered = [...allCourses];
 
+  // category
   if (selectedCategory !== "All") {
     filtered = filtered.filter(c => c.category === selectedCategory);
   }
 
+  // level
   if (selectedLevel !== "All") {
     filtered = filtered.filter(c => c.level === selectedLevel);
   }
 
+  // search
   if (searchValue) {
     filtered = filtered.filter(c =>
       c.title.toLowerCase().includes(searchValue) ||
@@ -121,17 +143,19 @@ function applyFilters() {
   renderCourses(filtered);
 }
 
-// Search
+// ================= EVENTS =================
 document.addEventListener("DOMContentLoaded", () => {
 
-  document.getElementById("searchInput").addEventListener("keyup", e => {
+  // SEARCH
+  document.getElementById("searchInput").addEventListener("input", e => {
     searchValue = e.target.value.toLowerCase();
     applyFilters();
   });
 
-  // Category
+  // CATEGORY
   document.querySelectorAll("#categoryFilter button").forEach(btn => {
     btn.addEventListener("click", () => {
+
       document.querySelectorAll("#categoryFilter button")
         .forEach(b => b.classList.remove("active"));
 
@@ -142,33 +166,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Level
+  // LEVEL
   document.getElementById("levelFilter").addEventListener("change", e => {
     selectedLevel = e.target.value;
     applyFilters();
   });
 
-  // Sort
+  // SORT
   document.getElementById("sortFilter").addEventListener("change", e => {
-    let sorted = [...allCourses];
 
+    let filtered = [...allCourses];
+
+    // apply same filters first
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter(c => c.category === selectedCategory);
+    }
+
+    if (selectedLevel !== "All") {
+      filtered = filtered.filter(c => c.level === selectedLevel);
+    }
+
+    if (searchValue) {
+      filtered = filtered.filter(c =>
+        c.title.toLowerCase().includes(searchValue) ||
+        c.instructor.toLowerCase().includes(searchValue)
+      );
+    }
+
+    // sort
     switch (e.target.value) {
       case "ratingDesc":
-        sorted.sort((a, b) => b.rating - a.rating);
+        filtered.sort((a, b) => b.rating - a.rating);
         break;
+
       case "priceAsc":
-        sorted.sort((a, b) => a.price - b.price);
+        filtered.sort((a, b) => a.price - b.price);
         break;
+
       case "priceDesc":
-        sorted.sort((a, b) => b.price - a.price);
+        filtered.sort((a, b) => b.price - a.price);
         break;
+
       case "durationAsc":
-        sorted.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
+        filtered.sort((a, b) =>
+          parseInt(a.duration) - parseInt(b.duration)
+        );
         break;
     }
 
-    renderCourses(sorted);
+    renderCourses(filtered);
   });
-
-  updateNavbar();
 });
