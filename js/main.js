@@ -1,23 +1,4 @@
-// Theme Switch
-let switchBtn = document.getElementById('theme-switch');
 
-// Load theme
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark');
-  if (switchBtn) switchBtn.checked = true;
-}
-
-if (switchBtn) {
-  switchBtn.addEventListener('change', () => {
-    if (switchBtn.checked) {
-      document.body.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  });
-}
 
 // Navbar Badge
 function updateNavbar() {
