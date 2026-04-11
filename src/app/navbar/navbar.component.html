@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark bg-dark px-3 shadow">
+
+  <!-- Logo -->
+  <a class="navbar-brand" routerLink="/courses">
+    🎓 LearnSphere
+  </a>
+
+  <!-- Links -->
+  <div>
+
+    <a routerLink="/courses" class="btn btn-outline-light btn-sm me-2">
+      Courses
+    </a>
+
+    <a routerLink="/dashboard" class="btn btn-outline-light btn-sm me-2">
+      Dashboard ({{ enrollService.getCount() }})
+    </a>
+
+    <!-- Dark Mode Button -->
+    <button class="btn btn-warning btn-sm" (click)="toggleTheme()">
+      <i class="fa-solid fa-moon"></i> 
+    </button>
+
+  </div>
+
+</nav>

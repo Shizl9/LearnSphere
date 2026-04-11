@@ -1,0 +1,19 @@
+<div class="container mt-4">
+
+  <h2>My Enrolled Courses</h2>
+
+ 
+  <div *ngIf="enrolledCourses.length === 0" class="alert alert-warning">
+    You haven't enrolled in any courses yet!
+  </div>
+
+  <!-- ✅ إذا فيه كورسات -->
+  <div class="card p-3 mb-2"
+       *ngFor="let course of enrolledCourses">
+
+    <h5>{{ course.title }}</h5>
+    <p>{{ course.instructor }}</p>
+
+  </div>
+
+</div>
