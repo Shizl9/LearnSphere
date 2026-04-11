@@ -1,6 +1,4 @@
-
-
-// Navbar Badge
+// ================= NAVBAR =================
 function updateNavbar() {
   let enrolled = JSON.parse(localStorage.getItem('enrolled')) || [];
   document.getElementById('enrolledCount').textContent = enrolled.length;
@@ -8,19 +6,20 @@ function updateNavbar() {
 
 updateNavbar();
 
-// Async fetch for JSON
+// ================= FETCH DATA =================
 let allCourses = [];
+
 async function loadData() {
   try {
     const res = await fetch('./data.json');
     const data = await res.json();
 
     allCourses = data.courses;
-    renderCoursesDashboard();
 
     displayStats(data.stats);
     displayFeaturedCourses(data.courses);
     displayCategories(data.categories);
+
   } catch (err) {
     console.error("Failed to load data:", err);
   }
@@ -28,111 +27,101 @@ async function loadData() {
 
 loadData();
 
-// Display Stats
+// ================= STATS =================
 function displayStats(stats) {
   document.getElementById("students-count").textContent = stats.studentsEnrolled;
   document.getElementById("courses-count").textContent = stats.totalCourses;
   document.getElementById("instructors-count").textContent = stats.instructors;
 }
 
-// Display Featured Courses
+// ================= FEATURED COURSES =================
 function displayFeaturedCourses(courses) {
   const container = document.getElementById('featuredCourses');
   container.innerHTML = '';
-  courses.slice(0,3).forEach(course => {
-    let levelColor;
-    if(course.level==='Beginner') levelColor='success';
-    else if(course.level==='Intermediate') levelColor='warning';
-    else if(course.level==='Advanced') levelColor='danger';
-    else levelColor='secondary';
 
-    // النجوم باللون الأصفر
+  courses.slice(0, 3).forEach(course => {
+
+    let levelColor =
+      course.level === 'Beginner' ? 'success' :
+      course.level === 'Intermediate' ? 'warning' :
+      course.level === 'Advanced' ? 'danger' : 'secondary';
+
     let stars = '';
-    for(let i=0;i<5;i++){
-      stars += i < Math.round(course.rating) ? `<span class="star">★</span>` : `<span class="star">☆</span>`;
+    for (let i = 0; i < 5; i++) {
+      stars += i < Math.round(course.rating) ? '★' : '☆';
     }
 
     container.innerHTML += `
-      <div class="col-md-4 ">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">${course.title}</h5>
-            <hr>
-            <span class="badge bg-info ">${course.category}</span>
-            <p class="card-text">Instructor: ${course.instructor}</p>
-            <p>${stars}</p>
-            <p class="card-text">Duration: ${course.duration}</p>
-            <span class="badge bg-${levelColor} ">${course.level}</span>
-            <hr>
-            <button class="btn btn-primary mb-4" style="display:block; margin:10px auto 0 auto;" " onclick="enrollCourse(${course.id})">
-              Enroll Now
-            </button>
-          </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 p-3">
+          <h5>${course.title}</h5>
+          <span class="badge bg-info mb-2">${course.category}</span>
+          <p>Instructor: ${course.instructor}</p>
+          <p class="text-warning">${stars}</p>
+          <p>Duration: ${course.duration}</p>
+          <span class="badge bg-${levelColor}">${course.level}</span>
+
+          <button class="btn btn-primary mt-3"
+            onclick="enrollCourse(${course.id})">
+            Enroll Now
+          </button>
         </div>
       </div>
     `;
   });
 }
 
-// Display Categories
-let categoryImages = {
-  "Web Development": "assets/web-development.jpg",
-  "Data Science": "assets/Data-Science.jpg",
-  "Design": "assets/Design.jpg",
-  "Cybersecurity": "assets/Cybersecurity.jpg",
-  "Mobile Dev": "assets/Mobile-Dev.jpg",
-  "DevOps": "assets/DevOps.jpg"
-};
-let categoriesContainer = document.getElementById("categories");
+// ================= CATEGORIES =================
+function displayCategories(categoriesData) {
+  const container = document.getElementById("categories");
+  container.innerHTML = '';
 
-let categories = [
-  { name: "Web Development", count: 12 },
-  { name: "Data Science", count: 8 },
-  { name: "Design", count: 10 },
-  { name: "Cybersecurity", count: 6 },
-  { name: "Mobile Dev", count: 9 },
-  { name: "DevOps", count: 5 }
-];
+  let categoryImages = {
+    "Web Development": "assets/web-development.jpg",
+    "Data Science": "assets/Data-Science.jpg",
+    "Design": "assets/Design.jpg",
+    "Cybersecurity": "assets/Cybersecurity.jpg",
+    "Mobile Dev": "assets/Mobile-Dev.jpg",
+    "DevOps": "assets/DevOps.jpg"
+  };
 
-categories.forEach(cat => {
-  let col = document.createElement("div");
-  col.className = "col-md-4 mb-4";
+  categoriesData.forEach(cat => {
+    let col = document.createElement("div");
+    col.className = "col-md-4 mb-4";
 
-  let card = document.createElement("div");
-  card.className = "category-card";
+    let card = document.createElement("div");
+    card.className = "category-card";
 
- 
-  card.style.backgroundImage = `url(${categoryImages[cat.name]})`;
+    // 👇 نحافظ على الخلفية حقك
+    card.style.backgroundImage = `url(${categoryImages[cat.name]})`;
 
-  card.innerHTML = `
-    <h5>${cat.name}</h5>
-    <p>${cat.count} Courses</p>
-  `;
+    card.innerHTML = `
+      <h5>${cat.name}</h5>
+      <p>${cat.courseCount} Courses</p>
+    `;
 
-  col.appendChild(card);
-  categoriesContainer.appendChild(col);
-});
+    col.appendChild(card);
+    container.appendChild(col);
+  });
+}
 
+// ================= ENROLL =================
 function enrollCourse(courseId) {
-  let enrolled = JSON.parse(localStorage.getItem('enrolledCourses')) || [];
+  let enrolled = JSON.parse(localStorage.getItem('enrolled')) || [];
 
-  // نتأكد ما يتكرر
   if (enrolled.find(c => c.id === courseId)) {
     alert("Already enrolled!");
     return;
   }
 
-  // نجيب الكورس من allCourses
   const course = allCourses.find(c => c.id === courseId);
-
   if (!course) return;
 
-  // نضيف quizScore
   course.quizScore = 0;
 
   enrolled.push(course);
 
-  localStorage.setItem('enrolledCourses', JSON.stringify(enrolled));
+  localStorage.setItem('enrolled', JSON.stringify(enrolled));
 
   updateNavbar();
 }

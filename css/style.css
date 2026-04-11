@@ -127,29 +127,84 @@ body {
 }
 
 /* ---------- Featured Courses ---------- */
-#featuredCourses .card {
-  border: 1px solid #ddd;
-  transition: transform 0.3s, box-shadow 0.3s;
-  background: var(--card);
-}
-#featuredCourses .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-#featuredCourses .btn-primary {
-  background-color: var(--primary);
-  border-color: var(--primary);
-}
-#featuredCourses .btn-primary:hover {
-  background-color: #e21d1d;
-  border-color: #e65c2a;
-}
-/* النجوم */
-.star {
-  color: var(--star);
-  font-size: 16px;
+/* ================= CARDS ================= */
+.card {
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background-color: var(--card-bg, #fff);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
+/* Hover Effect 🔥 */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= TITLE ================= */
+.card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* ================= BADGES ================= */
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 50px;
+}
+
+/* ================= STARS ================= */
+.text-warning {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+/* ================= BUTTON ================= */
+.card .btn {
+  border-radius: 25px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* Hover button */
+.card .btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= CARD CONTENT ================= */
+.card p {
+  margin-bottom: 6px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ================= CATEGORY BADGE COLOR ================= */
+.badge.bg-info {
+  background-color: #6c63ff !important; /* بنفس ثيم LearnSphere */
+}
+
+/* ================= LEVEL COLORS تحسين ================= */
+.badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px;
+  }
+}
 /* ---------- Categories ---------- */
 .category-card {
   position: relative;
@@ -548,4 +603,154 @@ body.dark .price {
   font-size: 1.3rem;
   color: #666;
   margin-top: 40px;
+}
+
+/* ===============================
+   📱 RESPONSIVE DESIGN FIXES
+================================ */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+
+  /* Hero */
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Navbar logo */
+  .brand-logo img {
+    width: 110px;
+    height: auto;
+  }
+
+  /* Stats */
+  .row.text-center.my-5 {
+    padding: 25px 10px;
+  }
+
+  .row.text-center.my-5 .col h3 {
+    font-size: 26px;
+  }
+
+  /* Category cards */
+  .category-card {
+    height: 180px;
+    padding: 15px;
+  }
+
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero {
+    height: 70vh;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Stats → تتحول عمودي */
+  .row.text-center.my-5 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Cards */
+  .card {
+    margin-bottom: 20px;
+  }
+
+  /* Categories */
+  .category-card {
+    height: 160px;
+  }
+
+  .category-card h5 {
+    font-size: 16px;
+  }
+
+  .category-card p {
+    font-size: 12px;
+  }
+
+  /* Footer input */
+  footer input[type="email"] {
+    width: 100% !important;
+  }
+
+}
+
+/* Small Mobile (≤ 576px) */
+@media (max-width: 576px) {
+
+  /* Hero */
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  /* Navbar */
+  .navbar-nav {
+    text-align: center;
+  }
+
+  /* Featured courses */
+  #featuredCourses .col-md-4 {
+    width: 100%;
+  }
+
+  /* Categories */
+  #categories .col-md-4 {
+    width: 100%;
+  }
+
+  /* Testimonials */
+  .testimonial-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 25px 10px;
+  }
+
+}
+
+/* Extra Small (≤ 400px) */
+@media (max-width: 400px) {
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .card h5 {
+    font-size: 14px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
 }
