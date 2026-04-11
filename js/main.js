@@ -1,3 +1,22 @@
+// ================= DARK MODE =================
+const themeToggle = document.getElementById("theme-switch");
+
+// تحميل الحالة المحفوظة
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  themeToggle.checked = true;
+}
+
+// التبديل
+themeToggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
 // ================= NAVBAR =================
 function updateNavbar() {
   let enrolled = JSON.parse(localStorage.getItem('enrolled')) || [];
