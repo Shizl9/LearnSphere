@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container">
 
@@ -57,24 +56,23 @@
 <!-- Dark / Light -->
 
 <input type="checkbox" id="theme-switch" hidden>
-<label for="toggle-btn" class="icon-dark">
-  <div class="moon"><i class="fa-solid fa-moon"></i></div>
-  <div class="sun"><i class="fa-solid fa-sun"></i></div>
+<label for="theme-switch" class="icon-dark">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
 </label>
 
 
       </div>
     </div>
   </nav>
-  <div class="container my-5">
+
+  <!-- CONTENT -->
+<div class="container my-5">
 
   <!-- Course Header -->
   <div id="courseHeader" class="mb-4"></div>
 
-   <!-- Topics -->
-  <h4>What You Will Learn</h4>
-  <ul id="topicsList" class="mb-4"></ul>
- <!-- Topics -->
+  <!-- Topics -->
   <h4>What You Will Learn</h4>
   <ul id="topicsList" class="mb-4"></ul>
 
@@ -86,7 +84,10 @@
 
   <!-- Quiz -->
   <div id="quizContainer"></div>
-  <button class="btn btn-success mt-3" onclick="submitQuiz()">Submit Quiz</button>
+
+  <button class="btn btn-success mt-3" onclick="submitQuiz()">
+    Submit Quiz
+  </button>
 
   <h5 id="scoreResult" class="mt-4"></h5>
 

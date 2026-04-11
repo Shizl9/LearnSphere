@@ -75,8 +75,8 @@ function renderCourses(courses) {
 
             <p class="stars">${stars}</p>
 
-            <p>⏱ ${course.duration}</p>
-            <p>👨‍🎓 ${course.studentsCount}</p>
+            <p><i class="fa-regular fa-clock "></i>${course.duration}</p>
+            <p><i class="fa-solid fa-user-graduate"></i>${course.studentsCount}</p>
 
             <p class="price">$${course.price}</p>
 

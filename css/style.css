@@ -397,34 +397,41 @@ footer .footer-newsletter button:hover {
   background: var(--card);
   transition: all 0.3s ease;
   position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .course-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
 }
 
-/* Header (gradient top) */
+/* Header (your backgrounds safe 100%) */
 .course-header {
   height: 120px;
   border-radius: 16px 16px 0 0;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Title */
 .course-card h5 {
   font-weight: 600;
   font-size: 18px;
+  margin-top: 10px;
 }
 
-/* Instructor */
+/* Instructor + text */
 .course-card p {
   font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
 }
 
 /* Stars */
 .stars {
-  color: var(--star);
+  color: #ffc107;
   font-size: 14px;
+  letter-spacing: 2px;
 }
 
 /* Price */
@@ -432,12 +439,14 @@ footer .footer-newsletter button:hover {
   font-size: 18px;
   font-weight: bold;
   color: var(--primary);
+  margin-top: 5px;
 }
 
 /* Button */
 .course-card .btn {
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 .course-card .btn:hover {
@@ -447,10 +456,12 @@ footer .footer-newsletter button:hover {
 /* Badge spacing */
 .course-card .badge {
   margin-right: 5px;
+  border-radius: 20px;
+  padding: 5px 10px;
 }
 
 /* ===============================
-   🎨 Category Colors
+   🎨 Category Colors (SAFE)
 ================================ */
 
 .web {
@@ -467,6 +478,14 @@ footer .footer-newsletter button:hover {
 
 .cyber {
   background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.mobile {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.devops {
+  background: linear-gradient(135deg, #30cfd0, #330867);
 }
 
 .default {
@@ -487,50 +506,25 @@ footer .footer-newsletter button:hover {
   font-size: 12px;
   border-radius: 6px;
   font-weight: bold;
+  z-index: 2;
 }
 
 /* ===============================
-   🌙 Dark Mode Support
+    Responsive 
 ================================ */
 
-body.dark .course-card {
-  background: #1e1e1e;
-  color: #fff;
-}
+@media (max-width: 768px) {
+  .course-card h5 {
+    font-size: 16px;
+  }
 
-body.dark .course-card .badge {
-  background-color: #333 !important;
-  color: #fff;
-}
+  .price {
+    font-size: 16px;
+  }
 
-body.dark .price {
-  color: #ff7b00;
-}
-#categoryFilter .btn {
-  margin: 5px;
-  border-radius: 20px;
-}
-
-#searchInput {
-  border-radius: 10px;
-}
-
-.form-select {
-  border-radius: 10px;
-}
-
-#courseHeader {
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 10px;
-}
-
-#topicsList li {
-  padding: 5px 0;
-}
-
-.question {
-  margin-bottom: 20px;
+  .course-header {
+    height: 100px;
+  }
 }
 
 /* ===== Dashboard Cards ===== */
@@ -606,7 +600,7 @@ body.dark .price {
 }
 
 /* ===============================
-   📱 RESPONSIVE DESIGN FIXES
+   RESPONSIVE DESIGN 
 ================================ */
 
 /* Tablets (≤ 992px) */
