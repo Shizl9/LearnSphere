@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dashboard</title>
+  <!-- icons shourtcut link -->
+  <link rel="shortcut icon" href="./assets/lernspher-icon.png" type="image/x-icon">
+   <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- icons css-->
+  <link rel="stylesheet" href="./css/all.min.css">
+   <!-- bootsrap css-->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!--  main css file -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+      <nav class="navbar navbar-expand-lg bg-light sticky-top">
+    <div class="container">
+
+      <!-- Logo -->
+      <a class="navbar-brand brand-logo" href="#">
+        <img src="./assets/logo.png" alt="Logo">
+      </a>
+      <!-- Toggle (mobile) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="courses.html">Courses</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Instructors</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Enrolled Count -->
+        <span class="badge bg-primary ms-3" id="enrolledCount">0</span>
+<!-- Dark / Light -->
+
+<input type="checkbox" id="theme-switch" hidden>
+<label for="theme-switch" class="icon-dark">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
+</label>
+
+
+      </div>
+    </div>
+  </nav>
+ <div class="container my-5">
+
+  <!-- Summary stats -->
+  <div class="row mb-4 text-center">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 id="totalEnrolled">0</h3>
+        <p>Total Enrolled</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 id="totalCompleted">0</h3>
+        <p>Total Completed</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h3 id="averageScore">0%</h3>
+        <p>Average Score</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enrolled Courses List -->
+  <div id="coursesDashboard" class="row"></div>
+
+  <!-- Empty state -->
+  <div id="emptyState" class="text-center mt-5 d-none">
+    <h4>You haven't enrolled in any courses yet.</h4>
+    <a href="courses.html" class="btn btn-primary mt-3">Browse Courses</a>
+  </div>
+
+</div>
+<!-- dashboard js file -->
+<script src="./js/dashboard.js"></script>
+<!-- main js file -->
+<script src="./js/main.js"></script>
+  <!-- Icons js -->
+  <script src="./js/all.min.js"></script>
+<!-- bootstrap js file -->
+ <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

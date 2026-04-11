@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { EnrollmentService } from '../enrollment.service';
+=======
+import { Component } from '@angular/core';
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+<<<<<<< HEAD
 export class NavbarComponent  {
 
    constructor(public enrollService: EnrollmentService) {}
@@ -24,3 +29,8 @@ export class NavbarComponent  {
 }
    
 }
+=======
+export class NavbarComponent {
+
+}
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd

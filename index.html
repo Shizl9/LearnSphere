@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnSphere</title>
+  <!-- icons shourtcut link -->
+   <link rel="shortcut icon" href="./assets/lernspher-icon.png" type="image/x-icon">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- icons css-->
+  <link rel="stylesheet" href="./css/all.min.css">
+  <!-- bootsrap css-->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <!--  main css file -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-light sticky-top">
+    <div class="container">
+
+      <!-- Logo -->
+      <a class="navbar-brand brand-logo" href="#">
+        <img src="./assets/logo.png" alt="Logo">
+      </a>
+      <!-- Toggle (mobile) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="courses.html">Courses</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Instructors</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Enrolled Count -->
+        <span class="badge bg-primary ms-3" id="enrolledCount">0</span>
+<!-- Dark / Light -->
+
+<input type="checkbox" id="theme-switch" hidden>
+<label for="theme-switch" class="icon-dark">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
+</label>
+
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero text-center">
+  <div class="container">
+    <h1 class="display-4">Learn Without Limits</h1>
+    <a href="courses.html" class="btn m-2">Browse Courses</a>
+    <a href="#" class="btn btn-outline-light m-2">Sign Up Free</a>
+  </div>
+</section>
+ 
+  <!-- Stats Section -->
+  <div class="row text-center my-5">
+    <div class="col">
+      <h3 id="students-count">0</h3>
+      <p>Students</p>
+    </div>
+    <div class="col">
+      <h3 id="courses-count">0</h3>
+      <p>Courses</p>
+    </div>
+    <div class="col">
+      <h3 id="instructors-count">0</h3>
+      <p>Instructors</p>
+    </div>
+  </div>
+
+ <!-- Featured Courses Section -->
+<section class="container my-5">
+  <h2 class="mb-4 text-center">Featured Courses</h2>
+  <div class="row" id="featuredCourses">
+  </div>
+</section>
+ <!-- Categories -->
+  <section class="container my-5">
+    <h2 class="mb-4 text-center ">Categories</h2>
+    <div class="row" id="categories">
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+ <section class="container my-5">
+  <h2 class="mb-4 text-center">Testimonials</h2>
+
+  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+      <!-- Item 1 -->
+      <div class="carousel-item active">
+        <div class="card p-4 text-center">
+           <img src="assets/user2.png" class="testimonial-img mb-3" alt="user">
+          <p>"This platform helped me land my first dev job!"</p>
+          <h6>- Sarah, Web Development</h6>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="carousel-item">
+        <div class="card p-4 text-center">
+           <img src="assets/user.1.png" class="testimonial-img mb-3" alt="user">
+          <p>"Great instructors and real-world projects."</p>
+          <h6>- Ahmed, Data Science</h6>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="carousel-item">
+        <div class="card p-4 text-center">
+           <img src="assets/user3.png" class="testimonial-img mb-3" alt="user">
+          <p>"I learned so much in a short time!"</p>
+          <h6>- Lina, Mobile Development</h6>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Buttons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class=" text-white p-4">
+  <div class="container text-center">
+    
+        <img  class="dark-Logo" src="./assets/dark-Logo.png" alt="dark-Logo">
+      
+     <!-- Newsletter -->
+      <div class="mb-3">
+        <input type="email" id="newsletterEmail" class="form-control w-50 mx-auto mb-2"
+          placeholder="Enter your email">
+        <button id="subscribeBtn" class="btn btn-primary btn-sm">Subscribe</button>
+      </div>
+    <!-- Social Icons -->
+  <div class="footer-social">
+    <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="google" aria-label="Google Plus"><i class="fab fa-google-plus-g"></i></a>
+    <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+  
+  
+  </div>
+    <!-- Copyright -->
+    <p class="mt-3">&copy; 2026 LearnSphere. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+  <!-- main js  -->
+  <script src="js/main.js"></script>
+  <!-- Icons js -->
+  <script src="./js/all.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <!-- courses js  -->
+  <script src="js/courses.js"></script>
+  <!-- details js -->
+  <script src="js/details.js"></script>
+
+</body>
+
+</html>

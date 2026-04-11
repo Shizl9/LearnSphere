@@ -1,13 +1,18 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../Models/course';
 import { CoursesService } from '../courses.service';
 import { EnrollmentService } from '../enrollment.service';
+=======
+import { Component } from '@angular/core';
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
 
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css']
 })
+<<<<<<< HEAD
 export class CoursesListComponent implements OnInit{
      courses: Course[] = [];
   filteredCourses: Course[] = [];
@@ -58,3 +63,8 @@ export class CoursesListComponent implements OnInit{
     console.log('Enrolled:', course.title);
   }
 }
+=======
+export class CoursesListComponent {
+
+}
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd

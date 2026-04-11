@@ -3,7 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+<<<<<<< HEAD
     "learnsphere-angular": {
+=======
+    "learnsphere-Angular": {
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,6 +29,7 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
@@ -32,6 +37,11 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
+=======
+              "src/styles.css"
+            ],
+            "scripts": []
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
           },
           "configurations": {
             "production": {
@@ -64,10 +74,17 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "browserTarget": "learnsphere-angular:build:production"
             },
             "development": {
               "browserTarget": "learnsphere-angular:build:development"
+=======
+              "browserTarget": "learnsphere-Angular:build:production"
+            },
+            "development": {
+              "browserTarget": "learnsphere-Angular:build:development"
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +92,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "learnsphere-angular:build"
+=======
+            "browserTarget": "learnsphere-Angular:build"
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
           }
         },
         "test": {
@@ -100,6 +121,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "7e6c618b-701f-421f-9e7a-708154fa8c1c"
+=======
+    "analytics": "6337a304-11a5-4357-bd8a-e5cfca0461c6"
+>>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
   }
 }

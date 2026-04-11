@@ -1,0 +1,1056 @@
+/* ---------- Reset & Variables ---------- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --card: #f8f9fa;
+  --logo: #593df8;
+  --primary: #f04000; /* لون جذاب للـ Enroll Now */
+  --star: #ffd700; /* لون النجوم */
+}
+
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+
+
+/* ---------- Navbar ---------- */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 24px;
+ 
+}
+/* اللوقو */
+.brand-logo img {
+  height: 50px;      
+  width: 140px;
+}
+
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  height: 90vh;
+  background: url("../assets/hero-bg.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Overlay لتغميق الخلفية */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* النصوص داخل الهيرو */
+.hero .container {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* العنوان */
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+/* النص الفرعي */
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #f0f0f0;
+}
+
+/* الأزرار */
+.hero .btn {
+  background-color: #535455;
+  color: #ffffff;
+  border: none;
+}
+
+.hero .btn:hover{
+  background-color: #fff;
+  color: #000;
+}
+
+.hero .btn-outline-light {
+  color: #fff;
+  border-color: #fff;
+}
+
+.hero .btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
+.hero .carousel-indicators .active {
+  background-color: darkgray; /* النقطة النشطة */
+}
+/* ---------- Stats Section ---------- */
+.row.text-center.my-5 {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px 0;
+}
+.row.text-center.my-5 .col h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+}
+.row.text-center.my-5 .col p {
+  color: #555;
+  font-weight: 500;
+}
+
+/* ---------- Featured Courses ---------- */
+/* ================= CARDS ================= */
+.card {
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background-color: var(--card-bg, #fff);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover Effect 🔥 */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= TITLE ================= */
+.card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* ================= BADGES ================= */
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 50px;
+}
+
+/* ================= STARS ================= */
+.text-warning {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+/* ================= BUTTON ================= */
+.card .btn {
+  border-radius: 25px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* Hover button */
+.card .btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= CARD CONTENT ================= */
+.card p {
+  margin-bottom: 6px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ================= CATEGORY BADGE COLOR ================= */
+.badge.bg-info {
+  background-color: #6c63ff !important; /* بنفس ثيم LearnSphere */
+}
+
+/* ================= LEVEL COLORS تحسين ================= */
+.badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px;
+  }
+}
+/* ---------- Categories ---------- */
+.category-card {
+  position: relative;
+  height: 200px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Overlay */
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.2)
+  );
+  transition: 0.4s;
+}
+
+
+.category-card h5 {
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.category-card p {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.category-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.category-card:hover::after {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.1)
+  );
+}
+
+.category-card:hover h5 {
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
+
+
+.category-card:hover p {
+  opacity: 1;
+}
+
+/* ---------- Testimonials ---------- */
+/* الكرت */
+#testimonialCarousel .card {
+  max-width: 100%;
+  margin: auto;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: none;
+  text-align: center;
+}
+
+/* الصورة */
+.testimonial-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 15px; /* هذا يخليها بالنص */
+}
+
+/* النص */
+#testimonialCarousel p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+  text-align:center; /* مثل الموقع */
+}
+
+/* الاسم */
+#testimonialCarousel h6 {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background: #000000 !important;
+  color: #fff;
+  padding: 40px 0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+.dark-Logo {
+  height: 100px;        /* ارتفاع الشعار */
+  width:500;         /* يحافظ على نسبة العرض/الارتفاع */
+  display: block;      /* يمنع أي مسافة سفلية */
+  margin: 0 auto;      /* يوسّط الشعار إذا كان داخل div */
+}
+footer .footer-newsletter {
+  display: flex;
+  justify-content: center; /* يوسّط المجموعة داخل الفوتر */
+  align-items: center;     /* يجعل البريد والزر على نفس المستوى */
+  flex-wrap: wrap;         /* يسمح بالانتقال للسطر الثاني على الشاشات الصغيرة */
+  gap: 8px;                /* مسافة بين حقل البريد والزر */
+  margin-bottom: 15px;
+}
+
+footer .footer-newsletter input[type="email"] {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  height: 40px;          
+  flex: 1 1 250px;          
+}
+
+footer .footer-newsletter button {
+  height: 40px;             
+  padding: 0 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: #0d25fd;
+  color: #fff;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+footer .footer-newsletter button:hover {
+  background-color: #084298;
+  transform: translateY(-2px);
+}
+.footer-social {
+  margin: 15px auto 0;
+  width: auto;
+  text-align: center;
+}
+
+.footer-social a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 5px;
+  background-color: #484540; 
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 18px;
+}
+.footer-social a.facebook:hover { background-color: #3b5998; }   
+.footer-social a.google:hover { background-color: #db4437; }    
+.footer-social a.linkedin:hover { background-color: #0077b5; }   
+.footer-social a.twitter:hover { background-color: #1da1f2; }  
+.footer-social a:hover {
+  transition: 0.8s;
+}
+
+/* ===============================
+   🔥 Courses Page UI Upgrade
+================================ */
+
+/* Card */
+.course-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card);
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+/* Header (your backgrounds safe 100%) */
+.course-header {
+  height: 120px;
+  border-radius: 16px 16px 0 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Title */
+.course-card h5 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Instructor + text */
+.course-card p {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Stars */
+.stars {
+  color: #ffc107;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* Price */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-top: 5px;
+}
+
+/* Button */
+.course-card .btn {
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.course-card .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Badge spacing */
+.course-card .badge {
+  margin-right: 5px;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+/* ===============================
+   🎨 Category Colors (SAFE)
+================================ */
+
+.web {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.design {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+.data {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.cyber {
+  background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.mobile {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.devops {
+  background: linear-gradient(135deg, #30cfd0, #330867);
+}
+
+.default {
+  background: linear-gradient(135deg, #ccc, #999);
+}
+
+/* ===============================
+   🚀 Coming Soon Badge
+================================ */
+
+.coming-soon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* ===============================
+    Responsive 
+================================ */
+
+@media (max-width: 768px) {
+  .course-card h5 {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .course-header {
+    height: 100px;
+  }
+}
+
+/* =========================
+   COURSE DETAIL PAGE
+========================= */
+
+#courseHeader {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+#courseHeader h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#courseHeader p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Badges */
+#courseHeader .badge {
+  margin-right: 6px;
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+/* =========================
+   TOPICS LIST
+========================= */
+
+#topicsList {
+  list-style: none;
+  padding: 0;
+}
+
+#topicsList li {
+  background: #f8f9fa;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+#topicsList li:hover {
+  transform: translateX(5px);
+  background: #eef2ff;
+}
+
+/* =========================
+   INSTRUCTOR CARD
+========================= */
+
+#instructorCard {
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+#instructorCard h5 {
+  font-weight: 700;
+}
+
+/* =========================
+   ENROLL BUTTON / STATUS
+========================= */
+
+#enrollSection {
+  text-align: center;
+}
+
+#enrollSection .btn {
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* enrolled text */
+.text-success {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* =========================
+   QUIZ SECTION
+========================= */
+
+#quizContainer {
+  margin-top: 20px;
+}
+
+.question {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.question h6 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.question div {
+  margin-bottom: 6px;
+}
+
+/* radio buttons */
+.question input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* submit button */
+.btn-success {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* score */
+#scoreResult {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* =========================
+   DARK MODE SUPPORT
+========================= */
+
+body.dark #courseHeader,
+body.dark #instructorCard,
+body.dark .question {
+  background: #1e1e1e;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+body.dark #topicsList li {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark #topicsList li:hover {
+  background: #333;
+}
+
+body.dark #scoreResult {
+  color: #fff;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+
+  #courseHeader {
+    padding: 20px;
+  }
+
+  #courseHeader h2 {
+    font-size: 24px;
+  }
+
+  #courseHeader p {
+    font-size: 14px;
+  }
+
+  #instructorCard {
+    padding: 15px;
+  }
+
+  .question {
+    padding: 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  #courseHeader {
+    text-align: center;
+  }
+
+  #courseHeader .badge {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  #topicsList li {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #instructorCard {
+    text-align: center;
+  }
+
+  .question h6 {
+    font-size: 15px;
+  }
+
+  .question {
+    padding: 12px;
+  }
+
+  #scoreResult {
+    font-size: 18px;
+  }
+
+  .btn-success {
+    font-size: 15px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  #courseHeader h2 {
+    font-size: 20px;
+  }
+
+  #courseHeader p {
+    font-size: 13px;
+  }
+
+  #topicsList li {
+    font-size: 13px;
+  }
+
+  .question {
+    padding: 10px;
+  }
+
+  #scoreResult {
+    font-size: 16px;
+  }
+
+  #enrollSection .btn {
+    width: 100%;
+  }
+}
+
+/* ===== Dashboard Cards ===== */
+.course-card {
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background: var(--card-bg, #fff);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* hover effect */
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* title */
+.course-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+/* meta */
+.course-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* badges */
+.badge {
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+/* progress container */
+.progress {
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e9ecef;
+  margin-bottom: 10px;
+}
+
+/* smooth animation */
+.progress-bar {
+  height: 100%;
+  transition: width 0.6s ease;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* Progress bar colors */
+.progress-bar.red {
+  background: linear-gradient(135deg, #ff4d4d, #dc3545);
+}
+
+.progress-bar.yellow {
+  background: linear-gradient(135deg, #ffd43b, #ffc107);
+  color: #000;
+}
+
+.progress-bar.green {
+  background: linear-gradient(135deg, #51cf66, #28a745);
+}
+
+/* Unenroll button */
+.btn-unenroll {
+  background: #ff3b30;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-unenroll:hover {
+  background: #c92a2a;
+  transform: scale(1.05);
+}
+
+/* Empty state */
+#emptyState {
+  font-size: 1.3rem;
+  color: #666;
+  margin-top: 40px;
+}
+
+/* =========================
+   DARK MODE SUPPORT
+========================= */
+
+body.dark .course-card {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+body.dark .course-meta {
+  color: #ccc;
+}
+
+body.dark .progress {
+  background: #333;
+}
+
+body.dark #emptyState {
+  color: #aaa;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .course-card {
+    text-align: center;
+  }
+
+  .btn-unenroll {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+/* ===============================
+   RESPONSIVE DESIGN 
+================================ */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+
+  /* Hero */
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Navbar logo */
+  .brand-logo img {
+    width: 110px;
+    height: auto;
+  }
+
+  /* Stats */
+  .row.text-center.my-5 {
+    padding: 25px 10px;
+  }
+
+  .row.text-center.my-5 .col h3 {
+    font-size: 26px;
+  }
+
+  /* Category cards */
+  .category-card {
+    height: 180px;
+    padding: 15px;
+  }
+
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero {
+    height: 70vh;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Stats → تتحول عمودي */
+  .row.text-center.my-5 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Cards */
+  .card {
+    margin-bottom: 20px;
+  }
+
+  /* Categories */
+  .category-card {
+    height: 160px;
+  }
+
+  .category-card h5 {
+    font-size: 16px;
+  }
+
+  .category-card p {
+    font-size: 12px;
+  }
+
+  /* Footer input */
+  footer input[type="email"] {
+    width: 100% !important;
+  }
+
+}
+
+/* Small Mobile (≤ 576px) */
+@media (max-width: 576px) {
+
+  /* Hero */
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  /* Navbar */
+  .navbar-nav {
+    text-align: center;
+  }
+
+  /* Featured courses */
+  #featuredCourses .col-md-4 {
+    width: 100%;
+  }
+
+  /* Categories */
+  #categories .col-md-4 {
+    width: 100%;
+  }
+
+  /* Testimonials */
+  .testimonial-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 25px 10px;
+  }
+
+}
+
+/* Extra Small (≤ 400px) */
+@media (max-width: 400px) {
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .card h5 {
+    font-size: 14px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+}
