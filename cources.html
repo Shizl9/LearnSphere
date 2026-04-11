@@ -19,7 +19,7 @@
 </head>
 <body>
      <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container">
 
       <!-- Logo -->
@@ -57,64 +57,16 @@
 <!-- Dark / Light -->
 
 <input type="checkbox" id="theme-switch" hidden>
-<label for="toggle-btn" class="icon-dark">
-  <div class="moon"><i class="fa-solid fa-moon"></i></div>
-  <div class="sun"><i class="fa-solid fa-sun"></i></div>
+<label for="theme-switch" class="icon-dark">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
 </label>
 
 
       </div>
     </div>
   </nav>
-<!-- Search & Filters -->
-  <section class="container my-4">
-    <div class="row g-2 align-items-center">
-         <!-- 🔍 Search -->
-  <div class="col-md-4">
-    <input type="text" id="searchInput" class="form-control" placeholder="Search courses...">
-  </div>
- 
-       <!-- level -->
-       <div class="col-md-4">
-         <select id="levelFilter" class="form-select">
-            <option value="All">All Levels</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-         </select>
-       </div>
-    </div>
-    <!-- Sort  -->
-     <div class="row mt-3 g-3">
-        <div class="col-md-4">
-            <select id="sortFilter" class="form-select">
-                <option value="ratingDesc">Rating High → Low</option>
-                <option value="priceAsc">Price Low → High</option>
-                <option value="priceDesc">Price High → Low</option>
-                <option value="durationAsc">Duration Shortest</option>
-            </select>
-        </div>
-     </div>
 
-      <!-- category Filters -->
-       <div class="col-md-4">
-        <div class="d-flex flex-wrap gap-2" role="group" id="categoryFilter">
-            <button class="btn btn-outline-primary active" data-category="All">All</button>
-            <button class="btn btn-outline-primary" data-category="Web Development">Web Dev</button>
-            <button class="btn btn-outline-primary" data-category="Data Science">Data Science</button>
-            <button class="btn btn-outline-primary" data-category="Design">Design</button>
-            <button class="btn btn-outline-primary" data-category="Cybersecurity">Cybersecurity</button>
-            <button class="btn btn-outline-primary" data-category="Mobile Dev">Mobile Dev</button>
-            <button class="btn btn-outline-primary" data-category="DevOps">DevOps</button>
-        </div>
-       </div> 
-
-     <!-- Courses Grid -->
-  <section class="container my-4">
-    <div class="row" id="coursesContainer">
-    </div>
-  </section>
-  </section>
   <!-- cources js file -->
    <script src="./js/courses.js"></script>
    <!-- main js file -->
