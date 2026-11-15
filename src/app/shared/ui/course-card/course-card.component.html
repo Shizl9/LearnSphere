@@ -1,42 +1,35 @@
 
-<div class="card p-3 shadow">
-
-  <h3>{{ course.title }}</h3>
-  <p>{{ course.instructor }}</p>
-  <p>⭐ {{ course.rating }}</p>
-
-  <!-- Course Level -->
-  <div [ngSwitch]="course.level" class="mb-2">
-
-    <span *ngSwitchCase="'Beginner'" class="badge bg-success">
-      Beginner
-    </span>
-
-    <span *ngSwitchCase="'Intermediate'" class="badge bg-primary">
-      Intermediate
-    </span>
-
-    <span *ngSwitchCase="'Advanced'" class="badge bg-danger">
-      Advanced
-    </span>
-
-    <span *ngSwitchDefault class="badge bg-secondary">
-      Unknown
-    </span>
-
+<article class="course-card">
+  <div class="course-cover">
+    <div class="cover-icon">⌘</div>
+    <span class="level-badge">{{ course.level }}</span>
   </div>
 
-  <!-- Enroll Button -->
-  <button
-    class="btn btn-success w-100"
-    (click)="onEnroll()"
-    *ngIf="course.available">
-    Enroll
-  </button>
+  <div class="course-content">
+    <span class="category">{{ course.category }}</span>
 
-  <!-- Coming Soon -->
-  <p class="text-danger mt-2" *ngIf="!course.available">
-    Coming Soon
-  </p>
+    <h3>{{ course.title }}</h3>
+    <p class="instructor">By {{ course.instructor }}</p>
 
-</div>
+    <div class="course-info">
+      <span>⭐ {{ course.rating }}</span>
+      <span>◷ {{ course.duration }}</span>
+      <span>👥 {{ course.studentsCount }}</span>
+    </div>
+
+    <div class="course-footer">
+      <strong>{{ course.price | currency:'USD':'symbol':'1.0-0' }}</strong>
+
+      <button
+        *ngIf="course.available"
+        type="button"
+        (click)="onEnroll()">
+        Enroll Now →
+      </button>
+
+      <span class="coming-soon" *ngIf="!course.available">
+        Coming Soon
+      </span>
+    </div>
+  </div>
+</article>

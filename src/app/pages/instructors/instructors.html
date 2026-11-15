@@ -1,0 +1,129 @@
+
+<div class="instructors-page">
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">MEET OUR INSTRUCTORS</span>
+
+      <h1>Learn from <span>Great Instructors</span></h1>
+
+      <p>
+        Meet the people behind our courses.
+        Explore their expertise and find the right instructor
+        for your learning journey.
+      </p>
+
+      <div class="hero-stats">
+        <div>
+          <strong>{{ instructors.length }}</strong>
+          <span>Instructors</span>
+        </div>
+
+        <div>
+          <strong>{{ filteredInstructors.length }}</strong>
+          <span>Showing Now</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="content">
+
+    <div class="section-header">
+      <div>
+        <span class="section-label">OUR TEAM</span>
+        <h2>Meet Your Instructors</h2>
+        <p>Find instructors and explore the courses they teach.</p>
+      </div>
+
+      <div class="search-box">
+        <span>⌕</span>
+        <input
+          type="search"
+          placeholder="Search instructors..."
+          (input)="onSearch($event)"
+        />
+      </div>
+    </div>
+
+    <div class="instructors-grid">
+
+      <article
+        class="instructor-card"
+        *ngFor="let instructor of filteredInstructors">
+
+        <div class="card-cover" [ngClass]="instructor.color">
+          <div class="avatar">{{ instructor.initials }}</div>
+        </div>
+
+        <div class="card-body">
+          <span class="specialty">{{ instructor.specialty }}</span>
+
+          <h3>{{ instructor.name }}</h3>
+
+          <p class="bio">{{ instructor.bio }}</p>
+
+          <div class="instructor-stats">
+            <div>
+              <strong>⭐ {{ instructor.averageRating | number:'1.1-1' }}</strong>
+              <span>Avg. Rating</span>
+            </div>
+
+            <div>
+              <strong>{{ instructor.students | number }}</strong>
+              <span>Enrollments*</span>
+            </div>
+
+            <div>
+              <strong>{{ instructor.courses.length }}</strong>
+              <span>Courses</span>
+            </div>
+          </div>
+
+          <div class="course-list">
+            <span>COURSES BY THIS INSTRUCTOR</span>
+
+            <div
+              class="course-item"
+              *ngFor="let course of instructor.courses">
+              <span>{{ course.title }}</span>
+              <span class="course-price">
+                {{ course.price | currency:'USD':'symbol':'1.0-0' }}
+              </span>
+            </div>
+          </div>
+
+          <a routerLink="/courses" class="view-btn">
+            Explore Courses →
+          </a>
+        </div>
+
+      </article>
+
+    </div>
+
+    <div
+      class="empty-state"
+      *ngIf="filteredInstructors.length === 0">
+
+      <div>🔎</div>
+      <h3>No instructors found</h3>
+      <p>Try searching with a different name or specialty.</p>
+    </div>
+
+    <p class="stats-note" *ngIf="instructors.length > 0">
+      *Enrollments are summed across courses and may include repeat learners.
+    </p>
+
+    <section class="bottom-cta">
+      <div>
+        <span>START LEARNING TODAY</span>
+        <h2>Your next skill starts with the right course.</h2>
+        <p>Explore courses from our instructors.</p>
+      </div>
+
+      <a routerLink="/courses">Browse Courses →</a>
+    </section>
+
+  </main>
+</div>

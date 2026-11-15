@@ -1,55 +1,104 @@
 
-<div class="container mt-4">
+<div class="courses-page">
 
-  <h2>Courses</h2>
+  <section class="courses-hero">
+    <div class="hero-inner">
+      <span class="eyebrow">EXPLORE LEARNSPHERE</span>
+      <h1>Explore Our <span>Courses</span></h1>
+      <p>
+        Discover courses designed to help you master new skills,
+        advance your career, and achieve your learning goals.
+      </p>
 
-  <!-- Search -->
-  <input
-    class="form-control mb-3"
-    placeholder="Search..."
-    (input)="onSearch($event)"
-  />
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input
+          type="search"
+          placeholder="Search for a course..."
+          [value]="searchText"
+          (input)="onSearch($event)"
+          aria-label="Search courses"
+        />
+      </div>
+    </div>
+  </section>
 
-  <!-- Category Filters -->
-  <div class="mb-3">
+  <main class="courses-container">
 
-    <button
-      class="btn me-2"
-      [class.active]="selectedCategory === 'All'"
-      (click)="filterByCategory('All')">
-      All
-    </button>
+    <div class="section-top">
+      <div>
+        <span class="section-label">FIND YOUR NEXT SKILL</span>
+        <h2>Discover your next course</h2>
+        <p>Learn something new and take the next step in your journey.</p>
+      </div>
 
-    <button
-      class="btn me-2"
-      [class.active]="selectedCategory === 'Frontend'"
-      (click)="filterByCategory('Frontend')">
-      Frontend
-    </button>
-
-    <button
-      class="btn"
-      [class.active]="selectedCategory === 'Backend'"
-      (click)="filterByCategory('Backend')">
-      Backend
-    </button>
-
-  </div>
-
-  <!-- Courses Grid -->
-  <div class="row mt-3">
-
-    <div
-      class="col-md-4 mb-3"
-      *ngFor="let course of filteredCourses">
-
-      <app-course-card
-        [course]="course"
-        (enroll)="onEnroll($event)">
-      </app-course-card>
-
+      <div class="results-count">
+        {{ filteredCourses.length }}
+        {{ filteredCourses.length === 1 ? 'Course' : 'Courses' }} Found
+      </div>
     </div>
 
-  </div>
+    <div class="filter-bar">
+      <div class="category-filters">
+        <button
+          type="button"
+          [class.active]="selectedCategory === 'All'"
+          (click)="filterByCategory('All')">
+          All Courses
+        </button>
+
+        <button
+          type="button"
+          [class.active]="selectedCategory === 'Frontend'"
+          (click)="filterByCategory('Frontend')">
+          Frontend
+        </button>
+
+        <button
+          type="button"
+          [class.active]="selectedCategory === 'Backend'"
+          (click)="filterByCategory('Backend')">
+          Backend
+        </button>
+
+        <button
+          type="button"
+          [class.active]="selectedCategory === 'Web'"
+          (click)="filterByCategory('Web')">
+          Web Development
+        </button>
+      </div>
+    </div>
+
+    <div class="courses-grid" *ngIf="filteredCourses.length > 0">
+      <div class="course-item" *ngFor="let course of filteredCourses">
+        <app-course-card
+          [course]="course"
+          (enroll)="onEnroll($event)">
+        </app-course-card>
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="filteredCourses.length === 0">
+      <div class="empty-icon">⌕</div>
+      <h3>No courses found</h3>
+      <p>Try another keyword or choose a different category.</p>
+      <button
+        type="button"
+        (click)="filterByCategory('All')">
+        View All Categories
+      </button>
+    </div>
+
+  </main>
+
+  <section class="courses-cta">
+    <div>
+      <span>KEEP LEARNING</span>
+      <h2>Invest in your future today.</h2>
+      <p>Explore new opportunities and build skills that matter.</p>
+    </div>
+    <a routerLink="/dashboard">My Learning Dashboard →</a>
+  </section>
 
 </div>

@@ -1,0 +1,146 @@
+
+<div class="home-page">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">✦ YOUR LEARNING JOURNEY STARTS HERE</span>
+
+      <h1>Learn new skills.<br><span>Build your future.</span></h1>
+
+      <p>
+        Explore expert-led courses, gain practical knowledge,
+        and achieve your goals at your own pace.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/courses" class="btn-primary">Explore Courses →</a>
+        <a href="#featured" class="btn-outline">Discover More</a>
+      </div>
+
+      <div class="hero-proof">
+        <div class="avatars">
+          <span>👩🏻</span><span>👨🏽</span><span>👩🏽</span><span>👨🏻</span>
+        </div>
+        <div>
+          <strong>Join our learning community</strong>
+          <small>Start building your skills today</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-glow"></div>
+      <div class="learning-card">
+        <div class="card-header">
+          <span class="card-icon">📘</span>
+          <span class="status">● Learning in progress</span>
+        </div>
+        <h3>Frontend Development</h3>
+        <p>Master the skills to build modern web apps.</p>
+
+        <div class="progress-info">
+          <span>Course progress</span><strong>72%</strong>
+        </div>
+        <div class="progress-track"><div class="progress-fill"></div></div>
+
+        <div class="lesson-row">
+          <div class="lesson-icon">▶</div>
+          <div><strong>Building with Angular</strong><small>Next lesson</small></div>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </div>
+      <div class="floating-badge badge-top">⭐ 4.9 Course Rating</div>
+      <div class="floating-badge badge-bottom">✓ Learn at your pace</div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stat"><strong>10K+</strong><span>Active Learners</span></div>
+    <div class="stat"><strong>500+</strong><span>Quality Lessons</span></div>
+    <div class="stat"><strong>50+</strong><span>Expert Instructors</span></div>
+    <div class="stat"><strong>4.9/5</strong><span>Learner Satisfaction</span></div>
+  </section>
+
+  <!-- FEATURED COURSES -->
+  <section class="featured-section" id="featured">
+    <div class="section-heading">
+      <div>
+        <span class="section-label">EXPLORE OUR COURSES</span>
+        <h2>Popular courses to get you started</h2>
+        <p>Discover courses designed to help you learn and grow.</p>
+      </div>
+      <a routerLink="/courses" class="view-all">View All Courses →</a>
+    </div>
+
+    <div class="courses-grid">
+      <article class="course-card" *ngFor="let course of featuredCourses">
+        <div class="course-cover">
+          <div class="cover-art">⌘</div>
+          <span class="course-level">{{ course.level }}</span>
+        </div>
+
+        <div class="course-body">
+          <span class="category">{{ course.category }}</span>
+          <h3>{{ course.title }}</h3>
+          <p>Learn practical skills with guided lessons and real examples.</p>
+
+          <div class="course-meta">
+            <span>⭐ {{ course.rating }}</span>
+            <span>◷ {{ course.duration }}</span>
+            <span>👥 {{ course.studentsCount }}</span>
+          </div>
+
+          <div class="course-bottom">
+            <strong>{{ course.price | currency:'USD':'symbol':'1.0-0' }}</strong>
+            <a routerLink="/courses">View Course →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHY LEARNSPHERE -->
+  <section class="benefits-section">
+    <div class="section-heading center">
+      <span class="section-label">WHY LEARNSPHERE?</span>
+      <h2>Everything you need to succeed</h2>
+      <p>A better way to learn, practice, and grow your skills.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon">📚</div>
+        <h3>Expert-Led Courses</h3>
+        <p>Learn from experienced instructors with practical, structured lessons.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🎯</div>
+        <h3>Learn at Your Pace</h3>
+        <p>Access learning materials anytime and build skills on your schedule.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📈</div>
+        <h3>Track Your Progress</h3>
+        <p>Stay motivated by following your courses and learning milestones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div>
+      <span>START LEARNING TODAY</span>
+      <h2>Ready to take the next step?</h2>
+      <p>Find the right course and start your learning journey.</p>
+    </div>
+    <a routerLink="/courses" class="cta-button">Browse Courses →</a>
+  </section>
+
+  <footer class="home-footer">
+    <strong>Learn<span>Sphere</span></strong>
+    <p>Empowering learners, one skill at a time.</p>
+    <small>© 2026 LearnSphere. All rights reserved.</small>
+  </footer>
+</div>

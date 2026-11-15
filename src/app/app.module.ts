@@ -9,13 +9,19 @@ import { NavbarComponent } from './shared/ui/navbar/navbar.component';
 import { CoursesListComponent } from './pages/courses/courses-list.component';
 import { CourseCardComponent } from './shared/ui/course-card/course-card.component';
 import { EnrollmentDashboardComponent } from './portals/student/dashboard/enrollment-dashboard.component';
+import { Home } from './pages/home/home';
+import { Instructors } from './pages/instructors/instructors';
+import { LearningPaths } from './pages/learning-paths/learning-paths';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CoursesListComponent,
     CourseCardComponent,
-    EnrollmentDashboardComponent
+    EnrollmentDashboardComponent,
+    Home,
+    Instructors,
+    LearningPaths
   ],
   imports: [
     BrowserModule,

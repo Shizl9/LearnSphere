@@ -1,27 +1,40 @@
 
-<nav class="navbar navbar-dark bg-dark px-3 shadow">
+<nav class="learn-navbar">
+  <div class="nav-container">
 
-  <!-- Logo -->
-  <a class="navbar-brand" routerLink="/courses">
-    🎓 LearnSphere
-  </a>
-
-  <!-- Links -->
-  <div>
-
-    <a routerLink="/courses" class="btn btn-outline-light btn-sm me-2">
-      Courses
+    <a routerLink="/home" class="brand">
+      <span class="brand-icon">🎓</span>
+      <span>Learn<span class="brand-blue">Sphere</span></span>
     </a>
 
-    <a routerLink="/dashboard" class="btn btn-outline-light btn-sm me-2">
-      Dashboard ({{ enrollService.getCount() }})
-    </a>
+    <div class="nav-links">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/courses" routerLinkActive="active">Courses</a>
+      <a routerLink="/instructors" routerLinkActive="active">
+        Instructors
+      </a>
+      <a routerLink="/dashboard" routerLinkActive="active">
+        My Learning
+        <span class="count">{{ enrollService.getCount() }}</span>
+      </a>
+      <a routerLink="/learning-paths" routerLinkActive="active">
+        Learning Paths
+      </a>
+      </div>
 
-    <!-- Dark Mode Button -->
-    <button type="button" class="btn btn-warning btn-sm" (click)="toggleTheme()">
-      <i class="fa-solid fa-moon"></i>
-    </button>
+    <div class="nav-actions">
+      <button
+        type="button"
+        class="theme-btn"
+        (click)="toggleTheme()"
+        aria-label="Toggle dark mode">
+        ☾
+      </button>
+
+      <a routerLink="/dashboard" class="dashboard-btn">
+        My Dashboard →
+      </a>
+    </div>
 
   </div>
-
 </nav>

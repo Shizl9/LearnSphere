@@ -11,6 +11,10 @@ import { EnrollmentService } from '../../../services/enrollment.service';
 })
 export class EnrollmentDashboardComponent implements OnInit {
 
+  get availableCount(): number {
+  return this.enrolledCourses.filter(course => course.available).length;
+}
+
   enrolledCourses: Course[] = [];
 
   constructor(
