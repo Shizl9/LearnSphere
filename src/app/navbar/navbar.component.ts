@@ -1,36 +1,34 @@
-<<<<<<< HEAD
+
 import { Component, OnInit } from '@angular/core';
 import { EnrollmentService } from '../enrollment.service';
-=======
-import { Component } from '@angular/core';
->>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
 
 @Component({
   selector: 'app-navbar',
+  standalone: false,
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-<<<<<<< HEAD
-export class NavbarComponent  {
+export class NavbarComponent implements OnInit {
 
-   constructor(public enrollService: EnrollmentService) {}
+  constructor(public enrollService: EnrollmentService) {}
 
-  toggleTheme() {
+  ngOnInit(): void {
+    const theme = localStorage.getItem('theme');
+
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }
+
+  toggleTheme(): void {
     document.body.classList.toggle('dark');
-    const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
-  localStorage.setItem('theme', theme);
-  }
-  ngOnInit() {
-  const theme = localStorage.getItem('theme');
 
-  if (theme === 'dark') {
-    document.body.classList.add('dark');
+    const theme = document.body.classList.contains('dark')
+      ? 'dark'
+      : 'light';
+
+    localStorage.setItem('theme', theme);
   }
 }
-   
-}
-=======
-export class NavbarComponent {
-
-}
->>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd

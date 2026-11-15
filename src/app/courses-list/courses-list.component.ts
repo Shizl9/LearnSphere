@@ -1,20 +1,18 @@
-<<<<<<< HEAD
+
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../Models/course';
 import { CoursesService } from '../courses.service';
 import { EnrollmentService } from '../enrollment.service';
-=======
-import { Component } from '@angular/core';
->>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
 
 @Component({
   selector: 'app-courses-list',
+  standalone: false,
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css']
 })
-<<<<<<< HEAD
-export class CoursesListComponent implements OnInit{
-     courses: Course[] = [];
+export class CoursesListComponent implements OnInit {
+
+  courses: Course[] = [];
   filteredCourses: Course[] = [];
 
   selectedCategory: string = 'All';
@@ -27,23 +25,24 @@ export class CoursesListComponent implements OnInit{
 
   ngOnInit(): void {
     this.courses = this.courseService.getCourses();
-    this.filteredCourses = this.courses;
-  }
-
-  // 🔍 search
-  onSearch(event: any) {
-    this.searchText = event.target.value.toLowerCase();
     this.applyFilters();
   }
 
-  // 📂 category filter
-  filterByCategory(cat: string) {
-    this.selectedCategory = cat;
+  // Search Courses
+  onSearch(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.searchText = input.value.toLowerCase().trim();
     this.applyFilters();
   }
 
-  // 🔥 apply both filters
-  applyFilters() {
+  // Filter by Category
+  filterByCategory(category: string): void {
+    this.selectedCategory = category;
+    this.applyFilters();
+  }
+
+  // Apply Search and Category Filters
+  applyFilters(): void {
     this.filteredCourses = this.courses.filter(course => {
 
       const matchCategory =
@@ -57,14 +56,10 @@ export class CoursesListComponent implements OnInit{
     });
   }
 
-  
-  onEnroll(course: Course) {
+  // Enroll in Course
+  onEnroll(course: Course): void {
     this.enrollService.enroll(course);
     console.log('Enrolled:', course.title);
   }
-}
-=======
-export class CoursesListComponent {
 
 }
->>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
