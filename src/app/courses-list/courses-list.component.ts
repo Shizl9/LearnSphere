@@ -6,6 +6,7 @@ import { EnrollmentService } from '../enrollment.service';
 
 @Component({
   selector: 'app-courses-list',
+  standalone: false,
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css']
 })

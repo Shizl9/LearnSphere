@@ -5,6 +5,7 @@ import { EnrollmentService } from '../enrollment.service';
 
 @Component({
   selector: 'app-enrollment-dashboard',
+  standalone: false,
   templateUrl: './enrollment-dashboard.component.html',
   styleUrls: ['./enrollment-dashboard.component.css']
 })
