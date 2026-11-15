@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 <div class="card p-3 shadow">
 
   <h3>{{ course.title }}</h3>
   <p>{{ course.instructor }}</p>
   <p>⭐ {{ course.rating }}</p>
 
-  <!-- 🟢 Level Badge -->
+  <!-- Course Level -->
   <div [ngSwitch]="course.level" class="mb-2">
 
     <span *ngSwitchCase="'Beginner'" class="badge bg-success">
@@ -26,12 +26,11 @@
 
   </div>
 
-  <!-- 🔘 Enroll Button -->
+  <!-- Enroll Button -->
   <button
     class="btn btn-success w-100"
     (click)="onEnroll()"
     *ngIf="course.available">
-
     Enroll
   </button>
 
@@ -41,6 +40,3 @@
   </p>
 
 </div>
-=======
-<p>course-card works!</p>
->>>>>>> 98d8d6c74a0bfe5816eb749557b682968fada1dd
