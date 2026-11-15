@@ -1,0 +1,126 @@
+
+<div class="dashboard-page">
+
+  <!-- HEADER -->
+  <section class="dashboard-header">
+    <div class="header-content">
+      <span class="eyebrow">MY LEARNING SPACE</span>
+      <h1>My Learning <span>Dashboard</span></h1>
+      <p>Track your learning journey and keep building your skills.</p>
+    </div>
+
+    <a routerLink="/courses" class="explore-btn">
+      + Explore Courses
+    </a>
+  </section>
+
+  <main class="dashboard-container">
+
+    <!-- STATS -->
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon blue">📚</div>
+        <div>
+          <span>Enrolled Courses</span>
+          <strong>{{ enrolledCourses.length }}</strong>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon green">🎓</div>
+        <div>
+          <span>Available Courses</span>
+          <strong>{{ availableCount }}</strong>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon purple">⭐</div>
+        <div>
+          <span>Learning Journey</span>
+          <strong>In Progress</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COURSES -->
+    <section class="learning-section">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">YOUR LEARNING</span>
+          <h2>My Enrolled Courses</h2>
+          <p>Continue exploring the courses you've joined.</p>
+        </div>
+
+        <span class="course-count">
+          {{ enrolledCourses.length }}
+          {{ enrolledCourses.length === 1 ? 'Course' : 'Courses' }}
+        </span>
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div class="empty-state" *ngIf="enrolledCourses.length === 0">
+        <div class="empty-icon">📖</div>
+        <h3>Your learning journey starts here!</h3>
+        <p>
+          You haven't enrolled in any courses yet.
+          Explore our courses and find something exciting to learn.
+        </p>
+
+        <a routerLink="/courses" class="empty-btn">
+          Browse Courses →
+        </a>
+      </div>
+
+      <!-- ENROLLED COURSES -->
+      <div class="enrolled-grid" *ngIf="enrolledCourses.length > 0">
+
+        <article
+          class="enrolled-card"
+          *ngFor="let course of enrolledCourses">
+
+          <div class="course-cover">
+            <div class="cover-icon">⌘</div>
+            <span class="course-level">{{ course.level }}</span>
+          </div>
+
+          <div class="course-content">
+            <span class="category">{{ course.category }}</span>
+            <h3>{{ course.title }}</h3>
+
+            <p class="instructor">By {{ course.instructor }}</p>
+
+            <div class="course-details">
+              <span>⭐ {{ course.rating }}</span>
+              <span>◷ {{ course.duration }}</span>
+            </div>
+
+            <div class="enrolled-status">
+              <span class="status-dot"></span>
+              Enrolled
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="dashboard-cta">
+      <div>
+        <span>KEEP GROWING</span>
+        <h2>There's always something new to learn.</h2>
+        <p>Discover more courses and expand your knowledge.</p>
+      </div>
+
+      <a routerLink="/courses">Explore More Courses →</a>
+    </section>
+
+  </main>
+
+</div>

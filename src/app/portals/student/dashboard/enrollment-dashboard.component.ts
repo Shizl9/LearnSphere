@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../Models/course';
-import { EnrollmentService } from '../enrollment.service';
+import { Course } from '../../../core/models/course';
+import { EnrollmentService } from '../../../services/enrollment.service';
 
 @Component({
   selector: 'app-enrollment-dashboard',
@@ -10,6 +10,10 @@ import { EnrollmentService } from '../enrollment.service';
   styleUrls: ['./enrollment-dashboard.component.css']
 })
 export class EnrollmentDashboardComponent implements OnInit {
+
+  get availableCount(): number {
+  return this.enrolledCourses.filter(course => course.available).length;
+}
 
   enrolledCourses: Course[] = [];
 

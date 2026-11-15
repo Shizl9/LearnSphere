@@ -1,0 +1,35 @@
+
+<article class="course-card">
+  <div class="course-cover">
+    <div class="cover-icon">⌘</div>
+    <span class="level-badge">{{ course.level }}</span>
+  </div>
+
+  <div class="course-content">
+    <span class="category">{{ course.category }}</span>
+
+    <h3>{{ course.title }}</h3>
+    <p class="instructor">By {{ course.instructor }}</p>
+
+    <div class="course-info">
+      <span>⭐ {{ course.rating }}</span>
+      <span>◷ {{ course.duration }}</span>
+      <span>👥 {{ course.studentsCount }}</span>
+    </div>
+
+    <div class="course-footer">
+      <strong>{{ course.price | currency:'USD':'symbol':'1.0-0' }}</strong>
+
+      <button
+        *ngIf="course.available"
+        type="button"
+        (click)="onEnroll()">
+        Enroll Now →
+      </button>
+
+      <span class="coming-soon" *ngIf="!course.available">
+        Coming Soon
+      </span>
+    </div>
+  </div>
+</article>

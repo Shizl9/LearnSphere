@@ -1,0 +1,138 @@
+
+<div class="paths-page">
+
+  <section class="paths-hero">
+    <span class="eyebrow">STRUCTURED LEARNING</span>
+    <h1>Find Your <span>Learning Path</span></h1>
+    <p>
+      Follow a clear roadmap, build practical skills,
+      and move toward your career goals.
+    </p>
+    <a routerLink="/courses" class="hero-btn">
+      Explore All Courses →
+    </a>
+  </section>
+
+  <main class="paths-container">
+
+    <div class="section-heading">
+      <span class="section-label">EXPLORE PATHS</span>
+      <h2>Choose Your Direction</h2>
+      <p>Select a learning path to explore its roadmap.</p>
+    </div>
+
+    <div class="paths-grid">
+
+      <article
+        class="path-card"
+        *ngFor="let path of paths">
+
+        <div class="path-top" [ngClass]="path.color">
+          <div class="path-icon">{{ path.icon }}</div>
+          <span class="level">{{ path.level }}</span>
+        </div>
+
+        <div class="path-body">
+          <h3>{{ path.title }}</h3>
+          <p>{{ path.description }}</p>
+
+          <div class="path-meta">
+            <span>🧭 {{ path.steps.length }} Steps</span>
+            <span>📚 {{ getListedCount(path) }} Listed Courses</span>
+          </div>
+
+          <div class="availability">
+            <span class="availability-dot"></span>
+            {{ getAvailableCount(path) }}
+            Available Now
+          </div>
+
+          <button
+            type="button"
+            class="view-path-btn"
+            (click)="selectPath(path)">
+            {{ selectedPath?.id === path.id ? 'Hide Roadmap' : 'View Roadmap' }}
+            →
+          </button>
+        </div>
+
+      </article>
+
+    </div>
+
+    <!-- SELECTED ROADMAP -->
+    <section class="roadmap-section" *ngIf="selectedPath as path">
+
+      <div class="roadmap-header">
+        <div>
+          <span class="section-label">YOUR ROADMAP</span>
+          <h2>{{ path.icon }} {{ path.title }}</h2>
+          <p>Follow these steps to develop your skills.</p>
+        </div>
+
+        <button type="button" class="close-btn" (click)="selectedPath = null">
+          ✕ Close
+        </button>
+      </div>
+
+      <div class="roadmap">
+
+        <div class="roadmap-step" *ngFor="let step of path.steps; let i = index">
+
+          <div class="step-number">{{ i + 1 }}</div>
+
+          <div class="step-content">
+            <div class="step-heading">
+              <h3>{{ step.title }}</h3>
+
+              <span
+                class="step-status available"
+                *ngIf="step.course?.available">
+                Available
+              </span>
+
+              <span
+                class="step-status unavailable"
+                *ngIf="step.course && !step.course.available">
+                Coming Soon
+              </span>
+
+              <span
+                class="step-status planned"
+                *ngIf="!step.course">
+                Planned
+              </span>
+            </div>
+
+            <p>{{ step.description }}</p>
+
+            <div class="step-course" *ngIf="step.course as course">
+              <span>📚 {{ course.title }}</span>
+              <span>⭐ {{ course.rating }}</span>
+              <span>◷ {{ course.duration }}</span>
+            </div>
+
+            <a
+              *ngIf="step.course?.available"
+              routerLink="/courses"
+              class="step-link">
+              Find This Course →
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div>
+        <span>YOUR FUTURE STARTS HERE</span>
+        <h2>Ready to start learning?</h2>
+        <p>Explore available courses and begin your journey.</p>
+      </div>
+      <a routerLink="/courses">Browse Courses →</a>
+    </section>
+
+  </main>
+</div>

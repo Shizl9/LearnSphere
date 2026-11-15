@@ -1,0 +1,40 @@
+
+<nav class="learn-navbar">
+  <div class="nav-container">
+
+    <a routerLink="/home" class="brand">
+      <span class="brand-icon">🎓</span>
+      <span>Learn<span class="brand-blue">Sphere</span></span>
+    </a>
+
+    <div class="nav-links">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/courses" routerLinkActive="active">Courses</a>
+      <a routerLink="/instructors" routerLinkActive="active">
+        Instructors
+      </a>
+      <a routerLink="/dashboard" routerLinkActive="active">
+        My Learning
+        <span class="count">{{ enrollService.getCount() }}</span>
+      </a>
+      <a routerLink="/learning-paths" routerLinkActive="active">
+        Learning Paths
+      </a>
+      </div>
+
+    <div class="nav-actions">
+      <button
+        type="button"
+        class="theme-btn"
+        (click)="toggleTheme()"
+        aria-label="Toggle dark mode">
+        ☾
+      </button>
+
+      <a routerLink="/dashboard" class="dashboard-btn">
+        My Dashboard →
+      </a>
+    </div>
+
+  </div>
+</nav>
