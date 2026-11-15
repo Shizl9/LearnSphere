@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { EnrollmentService } from '../enrollment.service';
+import { EnrollmentService } from '../../../services/enrollment.service';
 
 @Component({
   selector: 'app-navbar',
